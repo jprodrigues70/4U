@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+*, *:before, *:after {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    font-family: "Dosis",sans-serif;
+}
+header{
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    background-color: #FFF;
+    top: 0;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    padding: 12px 5%;
+}
+#signup{
+    display: none;
+}
+.logo-header{
+    width: 50px;
+    display: inline;
+    height: 100%;
+}
+.logo-header img{
+    height: 100%;
+}
+section{
+    margin-bottom: 60px;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/bg.png");
+    background-color: #32867F;
+    position: fixed;
+}
+.container{
+    width: 90%;
+    height: 70%;
+    background-color: #FFF;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
+    margin: 3% auto auto;
+    border-radius: 5px;
+}
+.btn{
+    padding: 6px 12px;
+    background-image: linear-gradient(to bottom, #A7EDE9 0px, #06D2C7 100%);
+    background-repeat: repeat-x;
+    border-color:#25A398;
+    cursor: pointer;
+    color: #FFF;
+    border:1px;
+    border-radius: 5px;
+}
+.btn:hover{
+    background-color: #06D2C7;
+    background-position: 0px -15px;
+}
+.rg{
+    float: right;
+}
+.in a{
+    font-size: 13px;
+    color: #ADBFBD;
+}
+.in a:hover{
+    font-size: 15px;
+    color: #0E5F56;
+}
+.lf{
+    float: left;
+}
+.login-form{
+    width: 50%;
+    height: 70%;
+    background-color: #FFF;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
+    margin: 3% auto auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    display: none;
+}
+.logo{
+    margin-top: 40px;
+    width: 100%;
+}
+.logo img{
+    width: 110px;
+}
+.up{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.sign-btn{
+    width: 60%;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
+.sign input{
+    width: 70%;
+    margin: 5px auto;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+.sign input:focus {
+    border-color: #31837D;
+    outline: 0px none;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 4px #30D9D0;
+}
+footer{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    background-color: #FFF;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+    bottom: 0;
+}
