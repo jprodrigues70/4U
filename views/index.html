@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../assets/css/index.css">
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <title>4U</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo-header"><img src="../assets/images/logont.png"></div>
+            <div class="rg">
+                <button id="login" class="btn" onclick="login()"><h2>Entrar</h2></button>
+                <button id="signup" class="btn" onclick="signup()"><h2>Inscrever-me</h2></button>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div></div>
+                <div class="sign up rg">
+                    <form>
+                        <div class="logo"><img src="../assets/images/logo.png"></div>
+                        <input name="nickname" placeholder="Inisira seu nome de usuário aqui" type="text">
+                        <input name="email" placeholder="Insira aqui o seu e-mail" type="text">
+                        <input name="password" placeholder="Insira aqui a sua senha" type="text">
+                        <button class="btn sign-btn"><h2>Inscrever-me</h2></button>
+                    </form>
+                </div>
+            </div>
+            <div class="login-form">
+                <form class="sign in">
+                    <div class="logo"><img src="../assets/images/logo.png"></div>
+                    <input name="email" placeholder="Insira aqui o seu e-mail" type="text">
+                    <input name="password" placeholder="Insira aqui a sua senha" type="text">
+                    <button class="btn sign-btn"><h2>Entrar</h2></button>
+                    <a href="#"><h6>Esqueceu a senha, jovem?</h6></a>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <div></div>
+            <div></div>
+        </footer>
+        <script type="text/javascript" src="../vendors/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+            function login(){
+                $(".container").hide();
+                $(".login-form").show();
+                $("#login").hide();
+                $("#signup").show();
+            }
+            function signup(){
+                $(".container").show();
+                $(".login-form").hide();
+                $("#login").show();
+                $("#signup").hide();
+            }
+        </script>
+    </body>
+</html>
