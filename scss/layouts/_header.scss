@@ -4,7 +4,7 @@ header{
     padding: 5px 7%;
     margin: 0;
     background-color: $base-c;
-    @include device-width($lg){
+    @include device-width($lg) {
         padding: 5px 15%
     }
     .menu-logo{
@@ -17,7 +17,7 @@ header{
         float: right;
         padding: 0;       
         >ul{
-            @include device-width($sm, max-width){
+            @include device-width($sm, max-width) {
                 @include onlyContent();
                 position: absolute;
                 top: $height-header;
@@ -82,7 +82,7 @@ header{
                         }
                     }
                 }
-                @include device-width($sm, max-width){
+                @include device-width($sm, max-width) {
                     text-align:left;
                     margin: 0;
                     width: 100%;
@@ -101,7 +101,7 @@ header{
         }
         input[type=checkbox] {
             display:none;
-            @include device-width($sm, max-width){
+            @include device-width($sm, max-width) {
                 &:checked ~ ul {
                     max-height: 300%;
                 }
@@ -113,7 +113,7 @@ header{
             cursor: pointer;
             user-select: none;
             display: none;
-            @include device-width($sm, max-width){
+            @include device-width($sm, max-width) {
                 position:relative;
                 display:block;
                 font-size: 40px;
