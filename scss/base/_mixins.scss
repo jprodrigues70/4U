@@ -1,0 +1,111 @@
+@mixin position-perfect($position, $top, $bottom, $left: 0, $right: 0){
+    position: $position ;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin basic-pseudo-element($width, $height-percentage, $height-vh){
+    content: " ";
+    width: $width;
+    height: $height-percentage;
+    height: $height-vh;
+}
+
+@mixin background-img($url, $position: initial, $size: cover, $repeat: no-repeat){
+    background:{
+        image: url($url);
+        size: $size;
+        repeat: $repeat;
+        position: $position;
+    }
+}
+
+@mixin fonts($family, $size, $weight){
+    font:{
+        family: $family;
+        size: $size;
+        weight: $weight;
+    }
+}
+
+@mixin onlyContent(){
+    padding: 0;
+    margin: 0;
+}
+
+@mixin center-element(){
+    float: none;
+    margin: 0 auto;
+}
+
+@mixin device-width($resolution, $variable: min-width){
+    @media screen and ($variable: $resolution){
+        @content;
+    }
+}
+
+@mixin grid-system($numsCols, $keys) {
+    position: relative;
+    float: left;
+    @for $i from 1 to (length($numsCols) + 1) {
+        @if(nth($keys, $i) == $xs){
+            width: nth($numsCols, $i)*$colSize;
+        }
+        @else{
+            @include device-width(nth($keys, $i)) {
+                width: nth($numsCols, $i)*$colSize;
+            }
+        }
+    }
+}
+
+@mixin grid-system-offset($numsCols, $keys) {
+    @for $i from 1 to (length($numsCols) + 1) {
+        @if(nth($keys, $i) == $xs){
+            margin-left: nth($numsCols, $i)*$colSize;
+        }
+        @else{
+            @include device-width(nth($keys, $i)) {
+                margin-left: nth($numsCols, $i)*$colSize;
+            }
+        }
+    }
+}
+
+@mixin row(){
+    &::before,
+    &::after {
+        display: table;
+        content: " ";
+    }
+    &::after{
+        clear: both;
+    }
+}
+
+@mixin vertical-align($height-mother, $element-height) {
+    margin-top: (($height-mother - $element-height) / 2);
+    margin-bottom: (($height-mother - $element-height) / 2);
+}
+
+
+@mixin box-shadow($height, $width, $transparencia){
+    -webkit-box-shadow: 0 $height $width rgba(0, 0, 0, $transparencia);
+    -moz-box-shadow: 0 $height $width rgba(0, 0, 0, $transparencia);
+    -os-box-shadow: 0 $height $width rgba(0, 0, 0, $transparencia);
+    -o-box-shadow: 0 $height $width rgba(0, 0, 0, $transparencia);
+    box-shadow: 0 $height $width rgba(0, 0, 0, $transparencia);
+}
+
+@mixin background-transparent($color, $transparencia: .6){
+    background-color: rgba($color, $transparencia);
+}

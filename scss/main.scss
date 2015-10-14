@@ -1,0 +1,22 @@
+/*
+	SITE PARA O DEPARTAMENTO DE CIÊNCIA DA COMPUTAÇÃO
+	DESENVOLVIDO POR INFOJR-UFBA
+*/
+
+/* BASE - Base styles, variables, mixins, etc */
+@import "base/variables.scss";
+@import "base/placeholder.scss";
+@import "base/mixins.scss";
+@import "base/base.scss";
+
+/* LAYOUTS - Page layout styles */
+@import "layouts/header.scss";
+@import "layouts/sections.scss";
+@import "layouts/footer.scss";
+
+/* MODULES - Individual site components */
+@import "modules/components.scss";
+@import "modules/forms.scss";
+@import "modules/blocks.scss";
+@import "modules/buttons.scss";
+@import "modules/typography.scss";

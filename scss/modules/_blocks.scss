@@ -1,0 +1,113 @@
+.card {
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    position: relative;
+    padding: 15px;
+    margin: 7.5px 0;
+    background-color: #FFF;
+}
+
+.posts {
+    .card {
+        padding: 0;
+    }
+}
+
+
+.post-header{
+    position: relative;
+    border-bottom: 1px solid $base-c;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    img {
+        width: 60px;
+        height: 60px;
+        background-color: pink;
+        @include border-radius(50%);
+        display: inline-block;
+        margin-right: 5px;
+        float: left;
+    }
+    h4, span {
+        width: calc(100% - 70px);
+        display: inline-block;
+        float: left;
+    }
+    .config {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 26px;
+        cursor: pointer;
+    }
+    .config-menu {
+        max-height: 0px;;
+        @include onlyContent();
+        right: 0;
+        top: 28px;
+        position: absolute;
+        text-align: center;
+        background-color: $base-c;
+        overflow: hidden;
+        transition: all 0.3s ease 0s;
+        li {
+            cursor: pointer;
+            padding: 5px;
+            margin: 1px;
+            background-color: #fff;
+            &:hover {
+                background-color: $base-c;
+                color: #FFF;
+            }
+        }
+    }
+    &:after {
+        @extend %clearFix;
+    }
+}
+
+.post {
+    padding: 15px;
+    &:after {
+        @extend %clearFix;
+    }
+    &-footer {
+        text-align: right;
+    }
+}
+
+.comments-box {
+    padding: 15px;
+    background-color: #F6F7F8;
+    width: 100%;
+    .comment {
+        margin-bottom: 15px;
+        img {
+            float: left;
+        }
+        &:after {
+            @extend %clearFix;
+        }
+    }
+    img {
+        width: 40px;
+        height: 40px;
+        @include border-radius(50%);
+        margin-right: 5px;
+        border:  1px solid #ABCFCD;
+        display: inline-block;
+    }
+    p {
+        width: calc(100% - 50px);
+        display: inline-block;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    .do-comment {
+        input {
+            width: calc(100% - 50px);
+            background-color: #FFF;
+            border: 1px solid #ABCFCD;
+            padding: 5px;
+        }
+    }
+}
