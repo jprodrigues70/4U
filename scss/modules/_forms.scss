@@ -1,0 +1,67 @@
+
+.input-group {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 8px;
+    border: 1px solid $base-c;
+    margin-top: 15px;;
+    input, textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: none;
+        color: #1a1a1a;
+        font-size: inherit;
+        background-color: #fff;
+    }
+    textarea {
+        resize: none;
+        margin: 0;
+    }
+    .addon {
+        padding: 10px 10px;
+        font-weight: 400;
+        color: $base-c;
+        text-align: center;
+        background-color: #FFF;
+        border: none;
+        display: block;
+        font-size: 20px;
+        width: 15%;
+        vertical-align: middle;
+    }
+}
+
+.input-file {
+    margin: 10px 0;
+    &:after {
+        @extend %clearFix;
+    }
+    .field {
+        width: calc(100% - 160px);
+        margin: 0px;
+        float: left;
+        height: 47px;
+        padding: 0px 5px;
+        pointer-events: none;
+    }
+}
+
+.btn-file {
+    float: left;
+    position: relative;
+    text-align: center;
+    background-color: $base-c;
+    &:hover {
+        background-color: $base-c;
+    }
+    input[type="file"] {
+        cursor: pointer;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        z-index: 3;
+        left: 0;
+        top: 0;
+    }
+}

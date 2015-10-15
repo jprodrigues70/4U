@@ -1,0 +1,26 @@
+footer {
+    clear: both;
+    background-color: $base-c;
+    color: #fff;
+    text-align: center;
+    padding: 5px 7%;
+    .contact {
+        @include grid-system((12, 6), ($xs, $sm));
+        padding: 0 15px;
+        .logo-dcc {
+            height: 120px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 0;
+        }
+        .logo-info {
+            width: 100px;
+        }
+    }
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+}

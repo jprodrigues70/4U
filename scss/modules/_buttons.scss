@@ -1,0 +1,22 @@
+.tag, .btn {
+    border: 1px solid $base-c;
+    @include border-radius(2px);
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #FFF;
+}
+
+.btn{
+    cursor: pointer;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    &-default {
+        background-color: $base-c;
+        color: #FFF;
+        &:hover {
+            background-color: lighten($base-c, 2%);
+        }
+    }
+    &:hover {
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.18), 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+    }
+}
