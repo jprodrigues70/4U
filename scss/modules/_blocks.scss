@@ -12,8 +12,7 @@
     }
 }
 
-
-.post-header {
+.post-header, .discipline-header {
     position: relative;
     border-bottom: 1px solid $base-c;
     padding-bottom: 10px;
@@ -31,6 +30,7 @@
         width: calc(100% - 70px);
         display: inline-block;
         float: left;
+        margin-bottom: 0;
     }
     .config {
         position: absolute;
@@ -63,6 +63,21 @@
     &:after {
         @extend %clearFix;
     }
+}
+
+.discipline {
+    width: 100%;
+    border: 1px solid $base-c;
+    margin: 0px 0 15px 0px;
+}
+
+.discipline-header {
+    .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    border-bottom: 0;
 }
 
 .post {
