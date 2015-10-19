@@ -401,6 +401,48 @@ INSERT INTO `disciplines` (`id`, `name`, `code`, `institute`) VALUES
 -- Dumping data for table `institutes`
 --
 
+INSERT INTO `disciplines` (`id`, `name`, `code`, `institute`) VALUES
+('Geodésia', 'ENGA01', 4),
+('Isostática', 'ENGA49', 4),
+('Topografia – A', 'ENGA50', 4),
+('Materiais de Construção I – A', 'ENGA51', 4),
+('Geoprocessamento', 'ENGA52', 4),
+('Materiais de Construção II – A', 'ENGA53', 4),
+('Mecânica dos Solos I', 'ENGA54', 4),
+('Mecânica dos Solos II', 'ENGA55', 4),
+('Fundações – A', 'ENGA56', 4),
+('Administração Aplicada à Engenharia Civil', 'ENGA57', 4),
+('Economia Aplicada à Engenharia Civil', 'ENGA58', 4),
+('Trabalho de Conclusão de Curso I', 'ENGA60', 4),
+('Sistemas de Revestimentos em Argamassa para Edificações', 'ENGA61', 4),
+('Logística de Transportes', 'ENGA62', 4),
+('Economia e Avaliação de Transportes', 'ENGA63', 4),
+('Transporte e Meio Ambiente', 'ENGA64', 4),
+('ELETRÔNICA DIGITAL', 'ENGC40', 4),
+('METODOLOGIA E EXPRESSÃO DO CONHECIMENTO CIENTÍFICO', 'ENGG62', 4),
+('BRIGADAS DE EMERG.-1º SOCORROS,PREVEN. E COMBATE A INCÊNDIO',	'ENGJ55', 4),
+('ESTATÍSTICA APLICADA AOS TRANSPORTES', 'ENGJ56', 4),
+('ESTUDOS DE IMPACTOS VIÁRIOS', 'ENGJ57', 4),
+('GEOPROCESSAMENTO APLICADO AOS TRANSPORTES', 'ENGJ58', 4),
+('DIREÇÃO DEFENSIVA E PREVENÇÃO DE ACIDENTES', 'ENGJ59', 4),
+('EDUCAÇÃO PARA O TRÂNSITO E CAMPANHAS EDUCATIVAS', 'ENGJ60', 4),
+('ENGENHARIA DE TRÂNSITO: PLANEJAMENTO E GESTÃO', 'ENGJ61', 4),
+('ÉTICA E CIDADANIA NO TRANSPORTE E TRÂNSITO', 'ENGJ62', 4),
+('LEGISLAÇÃO DO TRÂNSITO I', 'ENGJ64', 4),
+('LEGISLAÇÃO DO TRÂNSITO II', 'ENGJ65', 4),
+('LEVANTAMENTOS E PESQUISAS DE TRANSPORTE E TRÁFEGO', 'ENGJ66', 4),
+('PERÍCIA EM ACIDENTES DE TRÂNSITO', 'ENGJ68', 4),
+('SEGURANÇA DE TRÂNSITO', 'ENGJ69', 4),
+('PROJETO DE SINALIZAÇÃO VIÁRIA', 'ENGJ70', 4),
+('PLANEJAMENTO E GESTÃO DO TRANSPORTE DE CARGAS PERIGOSAS', 'ENGJ71', 4),
+('MEIO AMBIENTE-GESTÃO AMBIENTAL E DESENVOLVIMENTO SUSTENTÁVEL', 'ENGJ72', 4),
+('TRANSPORTES PÚBLICOS II-GESTÃO EMPRESARIAL', 'ENGJ73', 4),
+('PLANEJAMENTO INTEGRADO TRANSPORTES,TRÂNSITO E USO DO SOLO', 'ENGJ74', 4),
+('ESTÁGIO SUPERVISIONADO', 'ENGJ76', 4);
+
+
+
+
 INSERT INTO `institutes` (`id`, `name`, `area`) VALUES
 (1, 'MatemÃ¡tica', 'I'),
 (2, 'Biologia', 'II'),
