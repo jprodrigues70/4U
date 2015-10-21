@@ -19,6 +19,35 @@
     }
 }
 
+.left-menu {
+    width: 30%;
+    float: left;
+    ul {
+        @include onlyContent();
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+    input[type="radio"] {
+        display: none;
+        &:checked ~ ul {
+            max-height: 100%;
+        }
+    }
+    .area-input {
+        padding: 15px;
+        border: 1px solid $base-c;
+        position: relative;
+    }
+}
+
+.disciplines {
+    width: 70%;
+    float: left;    
+    padding-left: 15px;
+    margin-top: 7.5px;
+}
+
 .owl-dots {
     text-align: center;
     .owl-dot {

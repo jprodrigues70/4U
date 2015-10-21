@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `4u`.`institutes` ;
 CREATE TABLE IF NOT EXISTS `4u`.`institutes` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
+  `area` VARCHAR(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
@@ -40,6 +41,7 @@ DROP TABLE IF EXISTS `4u`.`courses` ;
 CREATE TABLE IF NOT EXISTS `4u`.`courses` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(6) NOT NULL,
+  `area` VARCHAR(4) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `institute` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
