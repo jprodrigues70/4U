@@ -21,15 +21,16 @@
     }
     &-full {
         width: 100%;
-        &:hover {
+        &:hover, &.active {
             background-color: $base-c;
             color: #FFF;
+            border-color: #FFF;
         }
     }
     &-area {
         margin-top: 15px;
         width: 100%;
-        &:hover {
+        &:hover, &.active {
             background-color: $base-c;
             color: #FFF;
         }
