@@ -57,6 +57,31 @@
                     </div>';
             }
         }
+        
+        public static function find() {
+            $disciplines = Disciplines::find($_POST['term']);
+            if($disciplines){
+                foreach ($disciplines as $discipline) {
+                    echo '
+                    <div class="discipline card">
+                        <div class="discipline-header">
+                            <img src="../assets/img/ppd.jpeg" alt="">
+                            <h4>'.$discipline->code.'</h4>
+                            <span>'.$discipline->name.'</span>
+                            <button class="btn btn-default">Seguir</button>
+                        </div>
+                    </div>';
+                }
+            }
+            else {
+                echo '
+                    <div class="discipline card">
+                        <div class="discipline-header">
+                            <h4 style="text-align:center">Nenhuma disciplina cadastrada.</h4>
+                        </div>
+                    </div>';
+            }
+        }
     }
     Discipline::$_POST['action']();
 ?>
