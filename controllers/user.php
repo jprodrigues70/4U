@@ -20,9 +20,13 @@
         
         public static function update() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
-            if($_POST['id']!="" && $_POST['name']!="" && $_POST['email']!="" && $_POST['password']!="" && $_POST['level']!="" && $_POST['course']!="") {
-                $user = new Users($_POST);
+            if($_POST['id']!="" && $_POST['name']!="" && $_POST['email']!=""&& $_POST['level']!="" && $_POST['course']!="") {
+            	$user = new Users($_POST);
                 try {
+                	$hash = md5($_POST['password']);
+	            	if ($hash != 'd41d8cd98f00b204e9800998ecf8427e') {
+	            		Users::changePassword($_POST['id'], $hash);
+	            	}
                     $user->update($_POST['id']);
                     $_SESSION['msg'] = 'success">Usuário atualizado com sucesso.';
                 }
@@ -39,8 +43,5 @@
             header('Location:../manager/users.php');
         }
     }
-    if (isset($_POST['action']))
-        User::$_POST['action']();
-    else
-        User::$_GET['action']();
+    $_POST ? User::$_POST['action']() : User::$_GET['action']();
 ?>

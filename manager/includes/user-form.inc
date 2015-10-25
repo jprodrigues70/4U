@@ -7,18 +7,6 @@
         <img id="prev-img">
         <input type="file" name="picture" value="" id="changer">
     </div>
-    <button id="form-control" type="button" class="btn warning" href="#">Alterar senha?</button>
-    <div class="form-controled invisible">
-        <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
-        <div class="field has-label">
-            <label for="new">Nova Senha *</label>
-            <input id="new" type="password" title="6 a 20 caracteres" pattern=".{6,20}">
-        </div>
-        <div class="field has-label">
-            <label for="confirm">Confirmar Senha *</label>
-            <input id="confirm" type="password" name="password" title="6 a 20 caracteres" pattern=".{6,20}">
-        </div>
-    </div>
     <div class="field has-label">
         <label for="name">Nome *</label>
         <input type="text" name="name" id="name" value="<?= isset($user) ? $user->name : NULL ;?>" required>
@@ -27,6 +15,32 @@
         <label for="email">E-mail *</label>
         <input type="email" name="email" id="email" value="<?= isset($user) ? $user->email : NULL ;?>" required>
     </div>
+    <?php if ($action == 'create') {
+        echo '<div class="form-controled">
+            <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
+            <div class="field has-label">
+                <label for="new">Senha *</label>
+                <input id="new" type="password" title="6 a 20 caracteres" pattern=".{6,20}">
+            </div>
+            <div class="field has-label">
+                <label for="confirm">Confirmar Senha *</label>
+                <input id="confirm" type="password" name="password" title="6 a 20 caracteres" pattern=".{6,20}">
+            </div>
+        </div>';
+    } else {
+        echo '<button id="form-control" type="button" class="btn warning" href="#">Alterar senha?</button>
+        <div class="form-controled invisible">
+            <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
+            <div class="field has-label">
+                <label for="new">Nova Senha *</label>
+                <input id="new" type="password" title="6 a 20 caracteres" pattern=".{6,20}">
+            </div>
+            <div class="field has-label">
+                <label for="confirm">Confirmar Senha *</label>
+                <input id="confirm" type="password" name="password" title="6 a 20 caracteres" pattern=".{6,20}">
+            </div>
+        </div>';
+    } ?>
     <div>
         <label for="level">Nível *</label>
         <select name="level" id="level">
