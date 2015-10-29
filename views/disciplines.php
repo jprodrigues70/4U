@@ -107,6 +107,11 @@
             $('.btn-full').removeClass('active');
             $(this).addClass('active');
         });
+        function followDiscipline(id){
+            $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'followDiscipline'}, function(result) {
+                alert('Seguindo');
+            });
+        }
     </script>
     </body>
 </html>

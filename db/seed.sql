@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 -- Database: `4u`
 --
 
+INSERT INTO `institutes` (`id`, `name`, `area`) VALUES
+(1, 'MatemÃ¡tica', 'I'),
+(2, 'Biologia', 'II'),
+(3, 'QuÃ­mica', 'I'),
+(4, 'Engenharia', 'I'),
+(5, 'Letras', 'IV'),
+(6, 'FÃ­sica', 'I'),
+(7, 'AdministraÃ§Ã£o', 'III'),
+(8, 'Arquitetura', 'I'),
+(9, 'CiÃªncia da InformaÃ§Ã£o', 'III'),
+(10, 'GeociÃªncias', 'I'),
+(11, 'CiÃªncias da SaÃºde', 'II');
+
 --
 -- Dumping data for table `courses`
 --
@@ -401,7 +414,7 @@ INSERT INTO `disciplines` (`id`, `name`, `code`, `institute`) VALUES
 -- Dumping data for table `institutes`
 --
 
-INSERT INTO `disciplines` (`id`, `name`, `code`, `institute`) VALUES
+INSERT INTO `disciplines` (`name`, `code`, `institute`) VALUES
 ('Geodésia', 'ENGA01', 4),
 ('Isostática', 'ENGA49', 4),
 ('Topografia – A', 'ENGA50', 4),
@@ -439,22 +452,6 @@ INSERT INTO `disciplines` (`id`, `name`, `code`, `institute`) VALUES
 ('TRANSPORTES PÚBLICOS II-GESTÃO EMPRESARIAL', 'ENGJ73', 4),
 ('PLANEJAMENTO INTEGRADO TRANSPORTES,TRÂNSITO E USO DO SOLO', 'ENGJ74', 4),
 ('ESTÁGIO SUPERVISIONADO', 'ENGJ76', 4);
-
-
-
-
-INSERT INTO `institutes` (`id`, `name`, `area`) VALUES
-(1, 'MatemÃ¡tica', 'I'),
-(2, 'Biologia', 'II'),
-(3, 'QuÃ­mica', 'I'),
-(4, 'Engenharia', 'I'),
-(5, 'Letras', 'IV'),
-(6, 'FÃ­sica', 'I'),
-(7, 'AdministraÃ§Ã£o', 'III'),
-(8, 'Arquitetura', 'I'),
-(9, 'CiÃªncia da InformaÃ§Ã£o', 'III'),
-(10, 'GeociÃªncias', 'I'),
-(11, 'CiÃªncias da SaÃºde', 'II');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
