@@ -453,6 +453,15 @@ INSERT INTO `disciplines` (`name`, `code`, `institute`) VALUES
 ('PLANEJAMENTO INTEGRADO TRANSPORTES,TRÂNSITO E USO DO SOLO', 'ENGJ74', 4),
 ('ESTÁGIO SUPERVISIONADO', 'ENGJ76', 4);
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`name`, `email`, `level`, `course`) VALUES
+("Jefferson", 'jefferson@email.com.br', '1', 4),
+("JP", 'jp@email.com.br', '1', 4),
+("Bruno", 'bruno@email.com.br', '1', 4)
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
