@@ -1,6 +1,7 @@
 <?php
 require_once('../helpers/connect.php');
 class Disciplines extends Connect{
+    public $id;
     public $code;
     public $name;
     public $institute;
@@ -8,6 +9,7 @@ class Disciplines extends Connect{
     {
         if (!empty($attributes))
         {
+            $this->id = array_key_exists('id', $attributes) ? $attributes['id'] : null;
             $this->code = $attributes['code'];
             $this->name = $attributes['name'];
             $this->institute = $attributes['institute'];
@@ -55,7 +57,7 @@ class Disciplines extends Connect{
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_OBJ);
     }
-    
+
     public static function getInstitute($id){
         $connect = static::start();
         $stm = $connect->prepare("SELECT name FROM institutes WHERE id=:id");

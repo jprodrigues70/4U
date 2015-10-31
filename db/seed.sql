@@ -460,7 +460,8 @@ INSERT INTO `disciplines` (`name`, `code`, `institute`) VALUES
 INSERT INTO `users` (`name`, `email`, `level`, `course`) VALUES
 ("Jefferson", 'jefferson@email.com.br', '1', 4),
 ("JP", 'jp@email.com.br', '1', 4),
-("Bruno", 'bruno@email.com.br', '1', 4)
+("Bruno", 'bruno@email.com.br', '1', 4),
+("Leonardo", 'leonardo@email.com.br', '1', 4)
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
