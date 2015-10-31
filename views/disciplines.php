@@ -112,7 +112,7 @@
             $(this).addClass('active');
         });
         
-        $('#search').keydown(function(){
+        $('#search').keyup(function(){
             $.post('../controllers/discipline.php',{ term: $(this).val(), action: 'find'}, function(result) {
                 $('.discipline').remove();
                 $('.disciplines').append(result);

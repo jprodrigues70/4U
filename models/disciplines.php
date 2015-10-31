@@ -41,6 +41,14 @@ class Disciplines extends Connect{
         return $stm->fetch(PDO::FETCH_OBJ);
     }
 
+    public static function selectByCode($code) {
+        $connect = static::start();
+        $stm = $connect->prepare("SELECT * FROM disciplines WHERE LOWER(code)=:code");
+        $stm->bindValue(":code", $code, PDO::PARAM_STR);
+        $stm->execute();
+        return $stm->fetch(PDO::FETCH_OBJ);
+    }
+
     public static function selectAll() {
         $connect = static::start();
         $stm = $connect->query("SELECT * FROM disciplines ORDER BY code");

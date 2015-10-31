@@ -41,8 +41,8 @@
                     <div class="discipline card">
                         <div class="discipline-header">
                             <img src="../assets/img/ppd.jpeg" alt="">
-                            <h4>'.$discipline->code.'</h4>
-                            <span>'.$discipline->name.'</span>
+                            <a href="discipline.php?'.strtolower($discipline->code).'"><h4>'.$discipline->code.'</h4>
+                            <span>'.$discipline->name.'</span></a>
                             <button class="btn btn-default">Seguir</button>
                         </div>
                     </div>';
