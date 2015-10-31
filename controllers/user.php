@@ -38,10 +38,25 @@
         }
 
         public static function delete() {
-            $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
-            if ($_GET['id']!="") Users::delete($_GET['id']);
+            $_SESSION['msg'] = 'fail">Não é possível deletar este usuário.';
+            if ($_GET['id']!="") {
+                try {
+                    Users::delete($_GET['id']);
+                    $_SESSION['msg'] = 'success">Usuário deletado com sucesso.';
+                }
+                catch(PDOException $e) {
+                    $_SESSION['msg'] = 'fail">Ocorreu um erro.';
+                }
+            }
             header('Location:../manager/users.php');
         }
     }
-    $_POST ? User::$_POST['action']() : User::$_GET['action']();
+    $postActions = array('create', 'update');
+    $getActions = array('delete');
+    if(isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
+        User::$_POST['action']();
+    }
+    elseif(isset($_GET['action']) && in_array($_GET['action'], $getActions)) {
+        User::$_GET['action']();
+    }
 ?>
