@@ -15,8 +15,8 @@
         <label for="email">E-mail *</label>
         <input type="email" name="email" id="email" value="<?= isset($user) ? $user->email : NULL ;?>" required>
     </div>
-    <?php if ($action == 'create') {
-        echo '<div class="form-controled">
+    <?php if ($action == 'create'): ?>
+        <div class="form-controled">
             <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
             <div class="field has-label">
                 <label for="new">Senha *</label>
@@ -26,9 +26,9 @@
                 <label for="confirm">Confirmar Senha *</label>
                 <input id="confirm" type="password" name="password" title="6 a 20 caracteres" pattern=".{6,20}">
             </div>
-        </div>';
-    } else {
-        echo '<button id="form-control" type="button" class="btn warning" href="#">Alterar senha?</button>
+        </div>
+    <?php else: ?>
+        <button id="form-control" type="button" class="btn warning" href="#">Alterar senha?</button>
         <div class="form-controled invisible">
             <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
             <div class="field has-label">
@@ -39,8 +39,8 @@
                 <label for="confirm">Confirmar Senha *</label>
                 <input id="confirm" type="password" name="password" title="6 a 20 caracteres" pattern=".{6,20}">
             </div>
-        </div>';
-    } ?>
+        </div>
+    <?php endif; ?>
     <div>
         <label for="level">Nível *</label>
         <select name="level" id="level">
@@ -51,18 +51,19 @@
     <div>
         <label for="course">Curso *</label>
         <select name="course" id="course">
-            <?php $courses = Courses::selectAll();
-            foreach ($courses as $course) {
-                if (isset($course) && $user->course == $course->id)
-                    echo '<option value="'. $course->id .'" selected>'. $course->name .'</option>';
-                else
-                    echo '<option value="'. $course->id .'">'. $course->name .'</option>';
-            }?>
+            <?php $courses = Courses::selectAll(); ?>
+            <?php foreach ($courses as $course): ?>
+                <?php if (isset($course) && $user->course == $course->id): ?>
+                    <option value="<?php echo $course->id ;?>" selected> <?php echo $course->name; ?></option>
+                <?php else: ?>
+                    <option value="<?php echo $course->id; ?>"><?php echo $course->name; ?></option>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="btn-pair">
     	<a href="users.php" class="btn cancel">Voltar</a>
     	<button name="action" type="submit" class="btn send" value="<?php echo $action; ?>">Salvar</button>
     </div>
-    <?= isset($user) ? '<input name="id" value="'.$user->id.'" type="hidden">' : NULL; ?>
+    <?php echo isset($user) ? '<input name="id" value="'.$user->id.'" type="hidden">' : NULL; ?>
 </form>
