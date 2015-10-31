@@ -13,7 +13,7 @@
             <div class="left-menu">
                 <div class="input-group">
                     <div class="btn btn-default"><i class="fa fa-search"></i></div>
-                    <input type="search" value="" placeholder="Procurar Disciplina">
+                    <input id="search" type="search" value="" placeholder="Procurar Disciplina">
                 </div>
                 <div>
                     <label for="areaI" class="btn btn-area">Área I</label>
@@ -93,6 +93,10 @@
     <?php include('layouts/footer.inc'); ?>
     <script src="../vendors/jquery/jquery-2.1.4.min.js"></script>
     <script>
+        $('document').ready(function () {
+            $('.area:checked').siblings('label').addClass('active');
+        });
+        
         function pullDiscipline(id){
             $.post('../controllers/discipline.php',{ institute: id, action: 'selectByInstitute'}, function(result) {
                 $('.discipline').remove();
@@ -106,6 +110,13 @@
         $('.btn-full').click(function(){
             $('.btn-full').removeClass('active');
             $(this).addClass('active');
+        });
+        
+        $('#search').keyup(function(){
+            $.post('../controllers/discipline.php',{ term: $(this).val(), action: 'find'}, function(result) {
+                $('.discipline').remove();
+                $('.disciplines').append(result);
+            });
         });
     </script>
     </body>
