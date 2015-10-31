@@ -43,7 +43,7 @@
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span>
-                            <a class="btn btn-default">Seguir</a>
+                            <a class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</a>
                         </div>
                     </div>';
                 }

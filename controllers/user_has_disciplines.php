@@ -1,34 +1,28 @@
 <?php
     session_start();
+    require_once('../models/disciplines.php');
     require_once('../models/user_has_disciplines.php');
     class UserHasDiscipline {
 
         public static function followDiscipline() {
-            if (isset($_SESSION['user'])) {
-                $disciplines = UserHasDisciplines::selectByInstitute($_POST['discipline']);
-                if($disciplines){
-                    foreach ($disciplines as $discipline) {
-                        echo '
-                        <div class="discipline card">
-                            <div class="discipline-header">
-                                <img src="../assets/img/ppd.jpeg" alt="">
-                                <h4>'.$discipline->code.'</h4>
-                                <span>'.$discipline->name.'</span>
-                                <a class="btn btn-default">Seguir</a>
-                            </div>
-                        </div>';
-                    }
+            //TODO: Retirar quando sessão de usuário estiver implementado
+            $_SESSION['user'] = 1;
+
+            if (isset($_SESSION['user']) && isset($_POST['discipline'])) {
+                $userHasDiscipline = new UserHasDisciplines(array("user" => $_SESSION['user'], "discipline" => $_POST['discipline']));
+                var_dump($userHasDiscipline);
+                if($userHasDiscipline->insert()) {
+                    $_SESSION['msg'] = 'success">A disciplina foi adicionada.';
+                    var_dump("funfou");
+                } else {
+                    $_SESSION['msg'] = 'fail">Não foi possivel seguir essa disciplina.';
+                    var_dump("deu ruim");
                 }
-                else {
-                    echo '
-                        <div class="discipline card">
-                            <div class="discipline-header">
-                                <h4 style="text-align:center">Nenhuma disciplina cadastrada.</h4>
-                            </div>
-                        </div>';
-                }
+            } else {
+                $_SESSION['msg'] = 'fail">Informações obrigatórias não informadas.';
+                var_dump("void");
             }
         }
     }
-    Discipline::$_POST['action']();
+    UserHasDiscipline::$_POST['action']();
 ?>

@@ -109,7 +109,7 @@
         });
         function followDiscipline(id){
             $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'followDiscipline'}, function(result) {
-                alert('Seguindo');
+                alert(result);
             });
         }
     </script>
