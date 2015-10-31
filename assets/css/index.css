@@ -9,7 +9,7 @@
 }
 html, body{
     width: 100%;
-    height: 100%;
+    background-color: #32867F;
     font-family: "Dosis",sans-serif;
 }
 header{
@@ -25,6 +25,11 @@ header{
 #signup{
     display: none;
 }
+form div label {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+}
 .logo-header{
     width: 50px;
     display: inline;
@@ -35,15 +40,11 @@ header{
 }
 section{
     margin: 60px 0px;
-    height: 100%;
     width: 100%;
-    background-image: url("../images/bg.png");
-    background-color: #32867F;
     position: fixed;
 }
 .container{
     width: 90%;
-    height: 70%;
     background-color: #FFF;
     box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
     margin: 30px auto auto;
@@ -89,16 +90,16 @@ section{
     display: none;
 }
 .logo{
+    text-align: center;
     margin-top: 40px;
     width: 100%;
 }
 .logo img{
-    width: 110px;
+    width: 300px;
 }
 .up{
     width: 50%;
     height: 100%;
-    text-align: center;
     vertical-align: middle;
 }
 .sign-btn{
@@ -107,8 +108,25 @@ section{
     padding: 8px 12px;
     margin-top: 5px;
 }
-.sign input{
-    width: 70%;
+.top-msg{
+    color: #fff;
+    margin: 20px 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.msg-fixed{
+    font-size: 10px;
+    color: crimsonr;
+}
+#top-msg{
+    color: white;
+    padding:10px 0px;
+}
+
+.sign input, .sign select{
+    width: 100%;
+    height: 42px;
     margin: 5px auto;
     font-size: 14px;
     padding: 8px 12px;
@@ -126,8 +144,6 @@ section{
 footer{
     height: 60px;
     width: 100%;
-    position: fixed;
     background-color: #FFF;
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
-    bottom: 0;
 }

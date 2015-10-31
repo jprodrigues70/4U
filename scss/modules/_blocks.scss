@@ -124,5 +124,11 @@
             border: 1px solid #ABCFCD;
             padding: 5px;
         }
+        .comment-block {
+            width: calc(100% - 95px);
+        }
+        .mini-send {
+            width: 42px;
+        }
     }
 }
