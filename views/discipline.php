@@ -1,5 +1,5 @@
 <?php require_once('../models/disciplines.php'); ?>
-<?php isset($_GET) ? $discipline = Disciplines::selectByCode(key($_GET)) : NULL; ?>
+<?php isset($_GET['id']) ? $discipline = Disciplines::selectByCode($_GET['id']) : header("Location: disciplines.php"); ?>
 <!DOCTYPE html>
 <html lang="pt">
     <head>
