@@ -69,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `4u`.`users` (
   `password` VARCHAR(255) NOT NULL,
   `level` VARCHAR(1) NOT NULL,
   `course` INT UNSIGNED NOT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
@@ -144,6 +145,41 @@ CREATE TABLE IF NOT EXISTS `4u`.`files` (
   UNIQUE INDEX `file_UNIQUE` (`file` ASC))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `4u`.`posts`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `4u`.`posts` ;
+
+CREATE TABLE IF NOT EXISTS `4u`.`posts` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `text` VARCHAR(255) NOT NULL,
+  `time` DATETIME NOT NULL,
+  `user` INT UNSIGNED NOT NULL,
+  `file` INT UNSIGNED NOT NULL,
+  `discipline` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_posts_users1_idx` (`user` ASC),
+  INDEX `fk_posts_files1_idx` (`file` ASC),
+  UNIQUE INDEX `file_UNIQUE` (`file` ASC),
+  INDEX `fk_posts_disciplines1_idx` (`discipline` ASC),
+  UNIQUE INDEX `discipline_UNIQUE` (`discipline` ASC),
+  CONSTRAINT `fk_posts_users1`
+    FOREIGN KEY (`user`)
+    REFERENCES `4u`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posts_files1`
+    FOREIGN KEY (`file`)
+    REFERENCES `4u`.`files` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posts_disciplines1`
+    FOREIGN KEY (`discipline`)
+    REFERENCES `4u`.`disciplines` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `4u`.`comments`
@@ -156,29 +192,19 @@ CREATE TABLE IF NOT EXISTS `4u`.`comments` (
   `time` DATETIME NOT NULL,
   `status` VARCHAR(1) NOT NULL,
   `user` INT UNSIGNED NOT NULL,
-  `file` INT UNSIGNED NOT NULL,
-  `discipline` INT UNSIGNED NOT NULL,
-  `post` INT UNSIGNED NOT NULL DEFAULT 0,
+  `post` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_comments_users1_idx` (`user` ASC),
-  INDEX `fk_comments_files1_idx` (`file` ASC),
-  UNIQUE INDEX `file_UNIQUE` (`file` ASC),
-  INDEX `fk_comments_disciplines1_idx` (`discipline` ASC),
-  UNIQUE INDEX `discipline_UNIQUE` (`discipline` ASC),
+  INDEX `fk_comments_posts1_idx` (`post` ASC),
   CONSTRAINT `fk_comments_users1`
     FOREIGN KEY (`user`)
     REFERENCES `4u`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comments_files1`
-    FOREIGN KEY (`file`)
-    REFERENCES `4u`.`files` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comments_disciplines1`
-    FOREIGN KEY (`discipline`)
-    REFERENCES `4u`.`disciplines` (`id`)
+  CONSTRAINT `fk_comments_posts1`
+    FOREIGN KEY (`post`)
+    REFERENCES `4u`.`posts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -20,18 +20,18 @@ SET time_zone = "+00:00";
 -- Database: `4u`
 --
 
-INSERT INTO `institutes` (`id`, `name`, `area`) VALUES
-(1, 'MatemÃ¡tica', 'I'),
-(2, 'Biologia', 'II'),
-(3, 'QuÃ­mica', 'I'),
-(4, 'Engenharia', 'I'),
-(5, 'Letras', 'IV'),
-(6, 'FÃ­sica', 'I'),
-(7, 'AdministraÃ§Ã£o', 'III'),
-(8, 'Arquitetura', 'I'),
-(9, 'CiÃªncia da InformaÃ§Ã£o', 'III'),
-(10, 'GeociÃªncias', 'I'),
-(11, 'CiÃªncias da SaÃºde', 'II');
+INSERT INTO `institutes` (`name`, `area`) VALUES
+('MatemÃ¡tica', 'I'),
+('Biologia', 'II'),
+('QuÃ­mica', 'I'),
+('Engenharia', 'I'),
+('Letras', 'IV'),
+('FÃ­sica', 'I'),
+('AdministraÃ§Ã£o', 'III'),
+('Arquitetura', 'I'),
+('CiÃªncia da InformaÃ§Ã£o', 'III'),
+('GeociÃªncias', 'I'),
+('CiÃªncias da SaÃºde', 'II');
 
 --
 -- Dumping data for table `courses`
@@ -457,11 +457,41 @@ INSERT INTO `disciplines` (`name`, `code`, `institute`) VALUES
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`name`, `email`, `level`, `course`) VALUES
-("Jefferson", 'jefferson@email.com.br', '1', 4),
-("JP", 'jp@email.com.br', '1', 4),
-("Bruno", 'bruno@email.com.br', '1', 4),
-("Leonardo", 'leonardo@email.com.br', '1', 4)
+INSERT INTO `users` (`id`, `name`, `email`, `level`, `image`, `course`) VALUES
+(1, "Jefferson", 'jefferson@email.com.br', '1', NULL, 4),
+(2, "JP", 'jp@email.com.br', '1', NULL, 4),
+(3, "Bruno", 'bruno@email.com.br', '1', NULL, 4),
+(4, "Mateus", 'mateus@email.com.br', '1', 'pp.jpeg', 4),
+(5, "Leonardo", 'leonardo@email.com.br', '1', NULL, 4),
+(6, "Rafael", 'rafael@email.com.br', '1', NULL, 4);
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `title`, `file`, `downloads`) VALUES
+(1, "Titulo", 'arquivo', 0);
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `text`, `time`, `user`, `file`, `discipline`) VALUES
+(1, "Galera, esse aqui é o meu trabalho de formais.", '2015-08-23 22:01:00', 4, 1,  25);
+
+--
+-- Dumping data for table `users_has_disciplines`
+--
+
+INSERT INTO `users_has_disciplines` (`id`, `user`, `discipline`) VALUES
+(1, 1,  25);
+
+--
+-- Dumping data for table `comments`
+--
+INSERT INTO `comments` (`id`, `text`, `time`, `status`, `user`, `post`) VALUES
+(1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.", '2015-08-23 22:04:00', '1', 6,  1),
+(2, "Eta.", '2015-08-23 22:09:00', '1', 4,  1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

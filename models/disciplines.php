@@ -1,18 +1,21 @@
 <?php
 require_once('../helpers/connect.php');
+require_once('institutes.php');
 class Disciplines extends Connect{
     public $id;
     public $code;
     public $name;
     public $institute;
-    function __construct($attributes)
+    function __construct($attributes = array())
     {
+        $attributes = empty($attributes) ? get_object_vars($this) : $attributes;
+
         if (!empty($attributes))
         {
             $this->id = array_key_exists('id', $attributes) ? $attributes['id'] : null;
             $this->code = $attributes['code'];
             $this->name = $attributes['name'];
-            $this->institute = $attributes['institute'];
+            $this->institute = Institutes::select($attributes['institute']);
         }
     }
 
@@ -40,7 +43,8 @@ class Disciplines extends Connect{
         $stm = $connect->prepare("SELECT * FROM disciplines WHERE id=:id");
         $stm->bindValue(":id", $id, PDO::PARAM_INT);
         $stm->execute();
-        return $stm->fetch(PDO::FETCH_OBJ);
+        $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        return $stm->fetch();
     }
 
     public static function selectByCode($code) {
