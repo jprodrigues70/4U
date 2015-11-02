@@ -22,5 +22,14 @@ class UserHasDisciplines extends Connect{
         $stm->bindValue(":discipline", $this->discipline, PDO::PARAM_INT);
         return $stm->execute();
     }
+
+    public function exists() {
+        $connect = static::start();
+        $stm = $connect->prepare("SELECT * FROM users_has_disciplines WHERE user = :user AND discipline = :discipline");
+        $stm->bindValue(":user", $this->user, PDO::PARAM_INT);
+        $stm->bindValue(":discipline", $this->discipline, PDO::PARAM_INT);
+        $stm->execute();
+        return count($stm->fetchAll()) > 0;
+    }
 }
 ?>

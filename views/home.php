@@ -4,7 +4,6 @@
 
     if(isset($_SESSION['user'])) {
         $posts = Posts::allByUserFollowing($_SESSION['user']);
-        var_dump($posts);
     }
 ?>
 <!DOCTYPE html>
