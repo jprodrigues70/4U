@@ -2,7 +2,7 @@
     session_start();
     require_once('../models/disciplines.php');
     class Discipline {
-    
+
         public static function create() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
             if ($_POST['code']!="" && $_POST['name']!="") {
@@ -17,7 +17,7 @@
             }
             return header('Location:../manager/disciplines.php');
         }
-        
+
         public static function update() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
             if($_POST['id']!="" && $_POST['code']!="" && $_POST['name']!="") {
@@ -32,7 +32,7 @@
             }
             return header('Location:../manager/disciplines.php');
         }
-        
+
         public static function selectByInstitute() {
             $disciplines = Disciplines::selectByInstitute($_POST['institute']);
             if($disciplines){
@@ -68,7 +68,7 @@
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span>
-                            <button class="btn btn-default">Seguir</button>
+                            <a class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</a>
                         </div>
                     </div>';
                 }
