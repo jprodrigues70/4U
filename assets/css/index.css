@@ -18,7 +18,6 @@ header{
     position: absolute;
     background-color: #FFF;
     top: 0;
-    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
     z-index: 1;
     padding: 12px 5%;
 }
@@ -46,7 +45,6 @@ section{
 .container{
     width: 90%;
     background-color: #FFF;
-    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
     margin: 30px auto auto;
     border-radius: 5px;
 }
@@ -77,12 +75,28 @@ section{
 }
 .lf{
     float: left;
+    color: white;
+    padding-right: 50px;
+    text-align: center;
+}
+
+.lf h2, .lf p{
+    margin-top: 15px;
+    text-align: justify;
+}
+.hashtags{
+    text-align: center!important;
+}
+.lf h2, .hashtags, .lf p a {
+    color: #22313F;
+}
+.img-welcome{
+    width: 60%;
 }
 .login-form{
     width: 50%;
     height: 70%;
     background-color: #FFF;
-    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
     margin: 3% auto auto;
     border-radius: 5px;
     text-align: center;
@@ -109,7 +123,7 @@ section{
     margin-top: 5px;
 }
 .top-msg{
-    color: #fff;
+    color: #22313F;
     margin: 20px 0px;
     text-align: center;
     text-transform: uppercase;
@@ -145,5 +159,4 @@ footer{
     height: 60px;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
 }

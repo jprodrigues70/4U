@@ -20,11 +20,16 @@
         </header>
         <section>
             <div class="container">
-                <div class="logo up lf">
-                    <img src="../assets/img/4u-b.png" alt="4U - Compartilhamento de Arquivos">
+                <div class="up lf">
+<!--                    <img src="../assets/img/4u-b.png" alt="4U - Compartilhamento de Arquivos">-->
+                   <h2>BEM-VINDO,</h2>
+                   <p>Você está em uma plataforma digital com objetivo de gerar conhecimento, aqui você pode compartilhar com os usuários documentos importantes como apostilas, trabalhos, projetos, entre outros. Faça seu cadastro, escolha suas matérias e fique ligado nos arquivos e comentários que seus colegas de classe estão fazendo sobre aquela disciplina.</p>
+                   <p class="hashtags">#compatilheideias #adquiraconhecimento</p>
+                   <img class="img-welcome" src="../assets/img/welcome.png" alt="Bem-Vindo">
+                   <p>Você também pode contribuir ainda mais com o 4U, <a href="#">saiba mais.</a></p>
                 </div>
                 <div class="sign up rg">
-                    <h3 class="top-msg">Crie o seu cadastro</h3>
+                    <h2 class="top-msg">Crie o seu cadastro</h2>
                     <?php $action = 'create';
                     include('../manager/includes/user-form.inc'); ?>
                 </div>
