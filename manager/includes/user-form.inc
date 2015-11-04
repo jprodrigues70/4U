@@ -1,14 +1,15 @@
 <form action="../controllers/user.php" method="POST" enctype="multipart/form-data" class="s-form">
-    <div class="msg-fixed warning" id="top-msg">Os campos com * são obrigatórios.</div>
     <div class="prev-img" style="background-image: url(../assets/img/logo-gT.png);">
         <div class="fake">
             <i class="icon-picture"></i>
         </div>
         <img id="prev-img">
-        <input type="file" name="picture" value="" id="changer">
+        <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")):?>
+            <input type="file" name="picture" value="" id="changer">
+        <?php endif; ?>
     </div>
     <div class="field has-label">
-        <label for="name">Nome *</label>
+        <label for="name">Nome de Usuário *</label>
         <input type="text" name="name" id="name" value="<?= isset($user) ? $user->name : NULL ;?>" required>
     </div>
     <div class="field has-label">
@@ -17,9 +18,8 @@
     </div>
     <?php if ($action == 'create'): ?>
         <div class="form-controled">
-            <div class="msg-fixed warning">A senha deve conter de 6 a 20 caracteres.</div>
             <div class="field has-label">
-                <label for="new">Senha *</label>
+                <label for="new">Senha *<small class="rg">A senha deve conter de 6 a 20 caracteres.</small></label>
                 <input id="new" type="password" title="6 a 20 caracteres" pattern=".{6,20}">
             </div>
             <div class="field has-label">
@@ -41,13 +41,15 @@
             </div>
         </div>
     <?php endif; ?>
-    <div>
-        <label for="level">Nível *</label>
-        <select name="level" id="level">
-            <option value="0" <?php if(isset($user) && $user->level == 0) echo 'selected'; ?>>Usuário</option>
-            <option value="1" <?php if(isset($user) && $user->level == 1) echo 'selected'; ?>>Admin</option>
-        </select>
-    </div>
+    <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")): $_SESSION["url"] = 1;?>
+        <div>
+            <label for="level">Nível *</label>
+            <select name="level" id="level">
+                <option value="0" <?php if(isset($user) && $user->level == 0) echo 'selected'; ?>>Usuário</option>
+                <option value="1" <?php if(isset($user) && $user->level == 1) echo 'selected'; ?>>Admin</option>
+            </select>
+        </div>
+    <?php endif; ?>
     <div>
         <label for="course">Curso *</label>
         <select name="course" id="course">
@@ -61,9 +63,12 @@
             <?php endforeach; ?>
         </select>
     </div>
+    <div class="msg-fixed warning" id="top-msg">Os campos com * são obrigatórios.</div>
     <div class="btn-pair">
-    	<a href="users.php" class="btn cancel">Voltar</a>
-    	<button name="action" type="submit" class="btn send" value="<?php echo $action; ?>">Salvar</button>
+        <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")): ?>
+    	   <a href="users.php" class="btn cancel">Voltar</a>
+        <?php endif; ?>
+    	<button name="action" type="submit" class="btn send" value="<?php echo $action; ?>">Cadastrar</button>
     </div>
     <?php echo isset($user) ? '<input name="id" value="'.$user->id.'" type="hidden">' : NULL; ?>
 </form>

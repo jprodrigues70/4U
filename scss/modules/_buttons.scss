@@ -35,4 +35,23 @@
             color: #FFF;
         }
     }
+    &-index{
+        padding: 14px 40px;
+        background-color:#25A398;
+        cursor: pointer;
+        color: #FFF;
+        border:1px;
+        border-radius: 5px;
+    }
+    &-index:hover{
+        background-color: #06D2C7;
+        background-position: 0px -15px;
+    }
+}
+
+.sign-btn{
+    width: 40%;
+    font-size: 14px;
+    padding: 8px 6px;
+    margin-top: 5px;
 }

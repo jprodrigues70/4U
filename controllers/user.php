@@ -5,7 +5,8 @@
     
         public static function create() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
-            if ($_POST['name']!="" && $_POST['email']!="" && $_POST['password']!="" && $_POST['level']!="" && $_POST['course']!="") {
+            if ($_POST['name']!="" && $_POST['email']!="" && $_POST['password']!="" && $_POST['course']!="") {
+                if($_POST['level'] == "") $_POST['level'] = "0";
                 $user = new Users($_POST);
                 try {
                     $user->insert();
@@ -15,7 +16,11 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro na criação do usuário.';
                 }
             }
-            return header('Location:../manager/users.php');
+            if ($_SESSION["URL"] == 1){
+                unset($_SESSION["URL"]);
+                return header('Location:../manager/users.php');
+            }
+            return header('Location:../views');
         }
         
         public static function update() {

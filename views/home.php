@@ -80,6 +80,7 @@
                         <div class="do-comment">
                             <img src="../assets/img/pp.jpeg" alt="">
                             <input type="text" placeholder="Deixe um comentário">
+                            <button class="btn btn-default mini-send"><i class="fa fa-send"></i></button>
                         </div>
                     </div>
                 </div>
