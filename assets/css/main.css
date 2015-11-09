@@ -445,6 +445,66 @@ footer {
     border: 1px solid #ABCFCD;
     padding: 5px; }
 
+#signup {
+  display: none; }
+
+.login-form {
+  width: 50%;
+  height: 70%;
+  background-color: #FFF;
+  margin: 3% auto auto;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px;
+  display: none; }
+
+.logo-header {
+  width: 50px;
+  display: inline;
+  height: 100%; }
+  .logo-header img {
+    height: 100%; }
+
+.rg {
+  float: right; }
+
+.up {
+  width: 50%;
+  height: 100%;
+  vertical-align: middle; }
+
+.sign label {
+  display: block; }
+.sign input, .sign select {
+  width: 100%;
+  height: 42px;
+  margin: 5px auto;
+  font-size: 14px;
+  padding: 8px 12px;
+  color: #555;
+  background-color: #FFF;
+  background-image: none;
+  border: 1px solid #CCC;
+  border-radius: 5px; }
+.sign input:focus {
+  border-color: #31837D;
+  outline: 0px none;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 4px #30D9D0; }
+
+.lf {
+  float: left;
+  padding-right: 50px;
+  text-align: center; }
+  .lf h2, .lf p {
+    margin-top: 15px;
+    text-align: justify; }
+  .lf .hashtags {
+    text-align: center !important; }
+  .lf h2, .lf .hashtags, .lf p > a {
+    color: #22313F; }
+  .lf .img-welcome {
+    width: 60%; }
+
 .tag, .btn {
   border: 1px solid #06d2c7;
   -webkit-border-radius: 2px;
@@ -477,6 +537,22 @@ footer {
     .btn-area:hover, .btn-area.active {
       background-color: #06d2c7;
       color: #FFF; }
+  .btn-index {
+    padding: 14px 40px;
+    background-color: #25A398;
+    cursor: pointer;
+    color: #FFF;
+    border: 1px;
+    border-radius: 5px; }
+  .btn-index:hover {
+    background-color: #06D2C7;
+    background-position: 0px -15px; }
+
+.sign-btn {
+  width: 40%;
+  font-size: 14px;
+  padding: 8px 6px;
+  margin-top: 5px; }
 
 h1, h2, h3 {
   margin-top: 20px;
