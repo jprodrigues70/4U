@@ -43,7 +43,7 @@
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <a href="discipline.php?'.strtolower($discipline->code).'"><h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span></a>
-                            <button class="btn btn-default">Seguir</button>
+                            <button class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</button>
                         </div>
                     </div>';
                 }
