@@ -1,7 +1,8 @@
 <?php
     session_start();
     require_once('../models/posts.php');
-
+    require_once('../helpers/session.php');
+    on();
     if(isset($_SESSION['user'])) {
         $posts = Posts::allByUserFollowing($_SESSION['user']);
     }
@@ -129,6 +130,7 @@
     <?php include('layouts/footer.inc'); ?>
     <script src="../vendors/jquery/jquery-2.1.4.min.js"></script>
     <script src="../vendors/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
+    <script src="../assets/js/general.js"></script>
     <script>
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({

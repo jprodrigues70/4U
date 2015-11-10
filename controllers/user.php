@@ -18,7 +18,7 @@
             }
             if ($_SESSION["URL"] == 1){
                 unset($_SESSION["URL"]);
-                return header('Location:../manager/users.php');
+                return header('Location:../manager/users');
             }
             return header('Location:../views');
         }
@@ -39,7 +39,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro na atualização do usuário.';
                 }
             }
-            return header('Location:../manager/users.php');
+            return header('Location:../manager/users');
         }
 
         public static function delete() {
@@ -53,7 +53,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro.';
                 }
             }
-            header('Location:../manager/users.php');
+            header('Location:../manager/users');
         }
     }
     $postActions = array('create', 'update');

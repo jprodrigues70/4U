@@ -1,5 +1,8 @@
+<?php session_start(); ?>
 <?php require_once('../models/users.php'); ?>
 <?php require_once('../models/courses.php'); ?>
+<?php require_once('../helpers/session.php'); ?>
+<?php home(); ?>
 <!DOCTYPE html>
 <html>
     <head>
