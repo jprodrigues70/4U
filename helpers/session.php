@@ -4,12 +4,12 @@
             return true;
         }
         session_destroy();
-        header('Location: ../manager/index');
+        header('Location: ../views/index');
     }
 
     function home(){
         if(isset($_SESSION['on'])){
-            header('Location: ../manager/home');
+            header('Location: ../views/home');
         }
     }
 

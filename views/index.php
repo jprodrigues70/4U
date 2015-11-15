@@ -1,5 +1,8 @@
+<?php session_start(); ?>
 <?php require_once('../models/users.php'); ?>
 <?php require_once('../models/courses.php'); ?>
+<?php require_once('../helpers/session.php'); ?>
+<?php home(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,15 +32,15 @@
                 </div>
                 <div class="sign up rg">
                     <h2 class="top-msg">Crie o seu cadastro</h2>
-                    <?php $action = 'create';
-                    include('../manager/includes/user-form.inc'); ?>
+                    <?php $action = 'create'; ?>
+                    <?php include('../manager/includes/user-form.inc'); ?>
                 </div>
             </div>
             <div class="login-form">
-                <form class="sign in">
+                <form class="sign in" action="../controllers/login.php" method="POST">
                     <div class="logo"><img src="../assets/img/4u.png"></div>
                     <input name="email" placeholder="Insira aqui o seu e-mail" type="text">
-                    <input name="password" placeholder="Insira aqui a sua senha" type="text">
+                    <input name="password" placeholder="Insira aqui a sua senha" type="password">
                     <button class="btn-index sign-btn">Entrar</button>
                     <a href="#"><h6>Esqueceu a senha, jovem?</h6></a>
                 </form>

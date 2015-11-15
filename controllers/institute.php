@@ -15,7 +15,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/institutes.php');
+            return header('Location:../manager/institutes');
         }
         
         public static function update() {
@@ -30,7 +30,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/institutes.php');
+            return header('Location:../manager/institutes');
         }
     }
     institute::$_POST['action']();

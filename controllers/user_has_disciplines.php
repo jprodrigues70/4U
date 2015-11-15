@@ -5,9 +5,6 @@
     class UserHasDiscipline {
 
         public static function followDiscipline() {
-            //TODO: Retirar quando sessão de usuário estiver implementada
-            $_SESSION['user'] = 4;
-
             if (isset($_SESSION['user']) && isset($_POST['discipline'])) {
                 $userHasDiscipline = new UserHasDisciplines(array("user" => $_SESSION['user'], "discipline" => $_POST['discipline']));
                 if(!$userHasDiscipline->exists() && $userHasDiscipline->insert()) {

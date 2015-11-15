@@ -16,18 +16,10 @@ header{
         max-width: 85%;
         float: right;
         padding: 0;       
-        >ul{
-            @include device-width($sm, max-width) {
-                @include onlyContent();
-                position: absolute;
-                top: $height-header;
-                left: 0;
-                transition: all 0.3s;
-                z-index: 6;
-                max-height: 0;
-                width: 110%;
-                overflow: hidden;
-            }
+        >.options, .me{
+            transition: max-height 0.6s;
+            margin: 0px;
+            display: inline-block;
             >li{
                 border-top: 2px solid transparent;
                 padding-top: 5px;
@@ -98,11 +90,26 @@ header{
                     }
                 }
             }
+            
+            @include device-width($sm, max-width) {
+                @include onlyContent();
+                position: absolute;
+                top: $height-header;
+                left: 0;
+                z-index: 6;
+                max-height: 0;
+                width: 110%;
+                overflow: hidden;
+                border-bottom: 4px solid $base-c;
+                >li a {
+                    color: $base-c;
+                }
+            }
         }
         input[type=checkbox] {
             display:none;
             @include device-width($sm, max-width) {
-                &:checked ~ ul {
+                &:checked ~ .options {
                     max-height: 300%;
                 }
             }
@@ -124,14 +131,41 @@ header{
     }
 }
 
-.logged-box {
-    height: 100%;
-    float: right;
-    border-left: 1px solid #FFF;
-        padding: 5px;
+.me {
+    position: relative;
+    color: #FFF;
     img {
-        height: 100%;
         border-radius: 50%;
-        display:inline-block;
+        display: inline-block;
+        width: 40px;
+        background-color: yellow;
+        height: 40px;
+    }
+    ul {
+        position: absolute;
+        right: 0;
+        background-color: $base-c;
+        z-index: 5;
+        margin: 0;
+        padding: 0;
+        li, a {
+            color: #FFF;
+            width: 100%;
+            text-align: center;
+            &:hover {
+                background-color: #FFF;
+                color: $base-c!important;
+            }
+        }
+        li {
+            padding: 5px;
+            &:hover {
+                background-color: #FFF;
+                color: $base-c!important;
+            }
+        }
+    }
+    #me-menu {
+        display: none;
     }
 }

@@ -457,13 +457,13 @@ INSERT INTO `disciplines` (`name`, `code`, `institute`) VALUES
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `level`, `image`, `course`) VALUES
-(1, "Jefferson", 'jefferson@email.com.br', '1', NULL, 4),
-(2, "JP", 'jp@email.com.br', '1', NULL, 4),
-(3, "Bruno", 'bruno@email.com.br', '1', NULL, 4),
-(4, "Mateus", 'mateus@email.com.br', '1', 'pp.jpeg', 4),
-(5, "Leonardo", 'leonardo@email.com.br', '1', NULL, 4),
-(6, "Rafael", 'rafael@email.com.br', '1', NULL, 4);
+INSERT INTO `users` (`id`, `name`, `email`, `level`, `image`, `course`, `password`) VALUES
+(1, "Jefferson", 'jefferson@email.com.br', '1', NULL, 4, 'e10adc3949ba59abbe56e057f20f883e'),
+(2, "JP", 'jp@email.com.br', '1', NULL, 4, 'e10adc3949ba59abbe56e057f20f883e'),
+(3, "Bruno", 'bruno@email.com.br', '1', NULL, 4, 'e10adc3949ba59abbe56e057f20f883e'),
+(4, "Mateus", 'mateus@email.com.br', '1', 'pp.jpeg', 4, 'e10adc3949ba59abbe56e057f20f883e'),
+(5, "Leonardo", 'leonardo@email.com.br', '1', NULL, 4, 'e10adc3949ba59abbe56e057f20f883e'),
+(6, "Rafael", 'rafael@email.com.br', '1', NULL, 4, 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Dumping data for table `files`

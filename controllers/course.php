@@ -15,7 +15,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/courses.php');
+            return header('Location:../manager/courses');
         }
         
         public static function update() {
@@ -30,7 +30,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/courses.php');
+            return header('Location:../manager/courses');
         }
     }
     course::$_POST['action']();

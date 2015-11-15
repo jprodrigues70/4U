@@ -15,7 +15,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/disciplines.php');
+            return header('Location:../manager/disciplines');
         }
 
         public static function update() {
@@ -30,7 +30,7 @@
                     $_SESSION['msg'] = 'fail">Ocorreu um erro. Lamento';
                 }
             }
-            return header('Location:../manager/disciplines.php');
+            return header('Location:../manager/disciplines');
         }
 
         public static function selectByInstitute() {
@@ -41,9 +41,9 @@
                     <div class="discipline card">
                         <div class="discipline-header">
                             <img src="../assets/img/ppd.jpeg" alt="">
-                            <a href="discipline.php?'.strtolower($discipline->code).'"><h4>'.$discipline->code.'</h4>
+                            <a href="discipline?'.strtolower($discipline->code).'"><h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span></a>
-                            <button class="btn btn-default">Seguir</button>
+                            <button class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</button>
                         </div>
                     </div>';
                 }
