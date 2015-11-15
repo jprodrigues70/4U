@@ -1,10 +1,11 @@
-<form action="../controllers/user.php" method="POST" enctype="multipart/form-data" class="s-form">
+<?php $noHomePage = ($_SERVER['SCRIPT_NAME'] != "/4U/views/index.php") ;?>
+   <form action="../controllers/user.php" method="POST" enctype="multipart/form-data" class="s-form">
     <div class="prev-img" style="background-image: url(../assets/img/logo-gT.png);">
         <div class="fake">
             <i class="icon-picture"></i>
         </div>
         <img id="prev-img">
-        <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")):?>
+        <?php if ($noHomePage):?>
             <input type="file" name="picture" value="" id="changer">
         <?php endif; ?>
     </div>
@@ -41,7 +42,7 @@
             </div>
         </div>
     <?php endif; ?>
-    <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")): $_SESSION["url"] = 1;?>
+    <?php if ($noHomePage): $_SESSION["url"] = 1;?>
         <div>
             <label for="level">Nível *</label>
             <select name="level" id="level">
@@ -65,7 +66,7 @@
     </div>
     <div class="msg-fixed warning" id="top-msg">Os campos com * são obrigatórios.</div>
     <div class="btn-pair">
-        <?php if (($_SERVER['REQUEST_URI'] != "/4U/views/") && ($_SERVER['REQUEST_URI'] != "/4U/views/index.php")): ?>
+        <?php if ($noHomePage): ?>
     	   <a href="users.php" class="btn cancel">Voltar</a>
         <?php endif; ?>
     	<button name="action" type="submit" class="btn send" value="<?php echo $action; ?>">Cadastrar</button>
