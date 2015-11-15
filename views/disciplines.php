@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../models/institutes.php'); ?>
 <?php $institutes = Institutes::selectAll(); ?>
 <!DOCTYPE html>
@@ -90,38 +91,6 @@
                 </div>
             </div>
         </section>
-    <?php include('layouts/footer.inc'); ?>
-    <script src="../vendors/jquery/jquery-2.1.4.min.js"></script>
-    <script>
-        $('document').ready(function () {
-            $('.area:checked').siblings('label').addClass('active');
-        });
-
-        function pullDiscipline(id){
-            $.post('../controllers/discipline.php',{ institute: id, action: 'selectByInstitute'}, function(result) {
-                $('.discipline').remove();
-                $('.disciplines').append(result);
-            });
-        }
-        function followDiscipline(id){
-            $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'followDiscipline'}, function(result) {
-                alert(result);
-            });
-        }
-        $('.btn-area').click(function(){
-            $('.btn-area').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.btn-full').click(function(){
-            $('.btn-full').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('#search').keyup(function(){
-            $.post('../controllers/discipline.php',{ term: $(this).val(), action: 'find'}, function(result) {
-                $('.discipline').remove();
-                $('.disciplines').append(result);
-            });
-        });
-    </script>
+        <?php include('layouts/footer.inc'); ?>
     </body>
 </html>

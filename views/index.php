@@ -46,20 +46,6 @@
                 </form>
             </div>
         </section>
-        <script type="text/javascript" src="../vendors/jquery/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript">
-            function login(){
-                $(".container").hide();
-                $(".login-form").show();
-                $("#login").hide();
-                $("#signup").show();
-            }
-            function signup(){
-                $(".container").show();
-                $(".login-form").hide();
-                $("#login").show();
-                $("#signup").hide();
-            }
-        </script>
+        <?php include('layouts/footer.inc')?>
     </body>
 </html>

@@ -21,6 +21,6 @@
                 </div>
             </div>
         </section>
-    <?php include('layouts/footer.inc'); ?>
+        <?php include('layouts/footer.inc'); ?>
     </body>
 </html>
