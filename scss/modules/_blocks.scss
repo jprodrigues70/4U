@@ -1,3 +1,10 @@
+.success {
+    padding: 15px;
+    background-color: $base-c;
+    @include border-radius(15px);
+    text-align: center;
+    color: #fff;
+}
 .card {
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     position: relative;

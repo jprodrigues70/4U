@@ -10,7 +10,7 @@
                 $user = new Users($_POST);
                 try {
                     $user->insert();
-                    $_SESSION['msg'] = 'success">Usuário criado com sucesso.';
+                    $_SESSION['msg'] = 'success">Usuário criado com sucesso, seja bem-vindo!';
                 }
                 catch(PDOException $e) {
                     $_SESSION['msg'] = 'fail">Ocorreu um erro na criação do usuário.';
