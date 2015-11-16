@@ -29,8 +29,7 @@ class Posts extends Connect{
 
     public static function allByUserFollowing($user) {
         $connect = static::start();
-        $stm = $connect->prepare("SELECT p.* FROM posts p INNER JOIN users_has_disciplines ud
-            ON ud.discipline = p.discipline and ud.user = :user");
+        $stm = $connect->prepare("SELECT p.* FROM posts p INNER JOIN users_has_disciplines ud ON ud.discipline = p.discipline and ud.user = :user");
         $stm->bindValue(":user", $user, PDO::PARAM_INT);
         $stm->execute();
         $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());

@@ -6,6 +6,7 @@ class Disciplines extends Connect{
     public $code;
     public $name;
     public $institute;
+    public $user;
     function __construct($attributes = array())
     {
         $attributes = empty($attributes) ? get_object_vars($this) : $attributes;
@@ -75,6 +76,14 @@ class Disciplines extends Connect{
         $connect = static::start();
         $stm = $connect->prepare("SELECT * FROM disciplines WHERE institute=:institute ORDER BY code");
         $stm->bindValue(":institute", $institute, PDO::PARAM_INT);
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_OBJ);
+    }
+    
+    public static function selectByUser($user) {
+        $connect = static::start();
+        $stm = $connect->prepare("SELECT d.name FROM users_has_disciplines ud INNER JOIN disciplines d ON ud.discipline = d.id and ud.user = :user");
+        $stm->bindValue(":user", $user, PDO::PARAM_INT);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_OBJ);
     }

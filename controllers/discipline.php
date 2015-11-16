@@ -33,7 +33,7 @@
             }
             return header('Location:../manager/disciplines');
         }
-
+        
         public static function selectByInstitute() {
             $disciplines = Disciplines::selectByInstitute($_POST['institute']);
             if($disciplines) {

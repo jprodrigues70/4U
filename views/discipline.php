@@ -1,4 +1,5 @@
-<?php session_start(); require_once('../models/disciplines.php'); ?>
+<?php session_start(); ?>
+<?php require_once('../models/disciplines.php'); ?>
 <?php require_once('../models/user_has_disciplines.php'); ?>
 <?php isset($_GET) ? $discipline = Disciplines::selectByCode(key($_GET)) : header("Location: disciplines.php"); ?>
 <!DOCTYPE html>
@@ -24,6 +25,23 @@
                     <?php endif ?>
                 </div>
             </div>
+        </section>
+        <section>
+            <div class="up lf">
+            </div>
+            <div class="up rg">
+               <p>Minhas Disciplinas:</p>
+               <ul>
+                    <?php $myDisciplines = Disciplines::selectByUser($_SESSION['user']); ?>
+                    <?php if($myDisciplines) : ?>
+                        <?php foreach ($myDisciplines as $myDiscipline) : ?>
+                            <li><?php echo $myDiscipline->name; ?></li>
+                        <?php endforeach;?>
+                    <?php else: ?>
+                        <li>Você não segue nenhuma disciplina!</li>
+                    <?php endif; ?>
+               </ul> 
+            </div>   
         </section>
         <?php include('layouts/footer.inc'); ?>
     </body>
