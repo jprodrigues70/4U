@@ -83,9 +83,10 @@ function pullDiscipline(id){
         $('.disciplines').append(result);
     });
 }
-function followDiscipline(id){
+function followDiscipline(id, button){
+    button.disabled=true;
+    button.innerHTML="Seguindo...";
     $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'followDiscipline'}, function(result) {
-        alert(result);
     });
 }
 $('.btn-area').click(function(){
