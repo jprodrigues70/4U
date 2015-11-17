@@ -2,6 +2,7 @@
 require_once('../helpers/connect.php');
 require_once('../models/users.php');
 require_once('../models/disciplines.php');
+require_once('../models/posts.php');
 class Posts extends Connect{
     public $id;
     public $text;
@@ -27,6 +28,15 @@ class Posts extends Connect{
         }
     }
 
+    public static function allByDiscipline($discipline) {
+        $connect = static::start();
+        $stm = $connect->prepare("SELECT * FROM posts WHERE discipline = :discipline");
+        $stm->bindValue(":discipline", $discipline, PDO::PARAM_INT);
+        $stm->execute();
+        $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        return $stm->fetchAll();
+    }
+    
     public static function allByUserFollowing($user) {
         $connect = static::start();
         $stm = $connect->prepare("SELECT p.* FROM posts p INNER JOIN users_has_disciplines ud ON ud.discipline = p.discipline and ud.user = :user");

@@ -5,7 +5,6 @@
         <label for="button" onclick><i class="fa fa-bars"></i></label>
         <ul class="options">
             <li><a href="home.php">Início</a></li>
-            <li><a href="">Pessoas</a></li>
             <li><a href="disciplines.php">Disciplinas</a></li>
         </ul>
         <ul class="me" id="me-menu-bt">

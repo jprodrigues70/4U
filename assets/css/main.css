@@ -17,7 +17,7 @@ html, body {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   color: #333;
-  background-color: #FFF; }
+  background-image: url(../../assets/img/bg.png); }
 
 a {
   color: black;
@@ -68,81 +68,87 @@ header {
     max-width: 85%;
     float: right;
     padding: 0; }
-    @media screen and (max-width: 768px) {
-      header .menu > ul {
-        padding: 0;
-        margin: 0;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        transition: all 0.3s;
-        z-index: 6;
-        max-height: 0;
-        width: 110%;
-        overflow: hidden; } }
-    header .menu > ul > li {
-      border-top: 2px solid transparent;
-      padding-top: 5px;
-      margin: 0 5px; }
-      header .menu > ul > li:hover, header .menu > ul > li.active {
-        border-top: 2px solid #fff; }
-    header .menu > ul li {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 18px;
-      font-weight: initial;
-      display: inline-block;
-      text-align: center;
-      cursor: pointer;
-      position: relative; }
-      header .menu > ul li a {
+    header .menu > .options, header .menu .me {
+      transition: max-height 0.6s;
+      margin: 0px;
+      display: inline-block; }
+      header .menu > .options > li, header .menu .me > li {
+        border-top: 2px solid transparent;
+        padding-top: 5px;
+        margin: 0 5px; }
+        header .menu > .options > li:hover, header .menu > .options > li.active, header .menu .me > li:hover, header .menu .me > li.active {
+          border-top: 2px solid #fff; }
+      header .menu > .options li, header .menu .me li {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        font-weight: initial;
         display: inline-block;
-        color: #FFF; }
-        header .menu > ul li a:hover {
-          text-decoration: none; }
-      header .menu > ul li:hover .more {
-        display: block;
-        left: 0; }
-      header .menu > ul li .more > li:hover .even-more {
-        display: block;
-        left: 100%;
-        top: 0;
-        border-left: 2px solid #fff; }
-      header .menu > ul li .more, header .menu > ul li .even-more {
-        display: none;
-        position: absolute;
-        background-color: #174368;
-        margin: 0px;
-        padding: 0px;
-        display: none;
+        text-align: center;
         cursor: pointer;
-        z-index: 6;
-        min-width: 150%; }
-        header .menu > ul li .more li, header .menu > ul li .even-more li {
-          min-width: 100%;
-          padding: 5px 2px; }
-        header .menu > ul li .more a, header .menu > ul li .even-more a {
-          color: #FFF;
-          width: 100%; }
-          header .menu > ul li .more a:hover, header .menu > ul li .even-more a:hover {
-            color: #174368;
-            background-color: #fff; }
-      @media screen and (max-width: 768px) {
-        header .menu > ul li {
-          text-align: left;
-          margin: 0;
-          width: 100%;
-          background-color: white;
-          padding: 1%; }
-          header .menu > ul li a {
+        position: relative; }
+        header .menu > .options li a, header .menu .me li a {
+          display: inline-block;
+          color: #FFF; }
+          header .menu > .options li a:hover, header .menu .me li a:hover {
+            text-decoration: none; }
+        header .menu > .options li:hover .more, header .menu .me li:hover .more {
+          display: block;
+          left: 0; }
+        header .menu > .options li .more > li:hover .even-more, header .menu .me li .more > li:hover .even-more {
+          display: block;
+          left: 100%;
+          top: 0;
+          border-left: 2px solid #fff; }
+        header .menu > .options li .more, header .menu > .options li .even-more, header .menu .me li .more, header .menu .me li .even-more {
+          display: none;
+          position: absolute;
+          background-color: #174368;
+          margin: 0px;
+          padding: 0px;
+          display: none;
+          cursor: pointer;
+          z-index: 6;
+          min-width: 150%; }
+          header .menu > .options li .more li, header .menu > .options li .even-more li, header .menu .me li .more li, header .menu .me li .even-more li {
+            min-width: 100%;
+            padding: 5px 2px; }
+          header .menu > .options li .more a, header .menu > .options li .even-more a, header .menu .me li .more a, header .menu .me li .even-more a {
+            color: #FFF;
+            width: 100%; }
+            header .menu > .options li .more a:hover, header .menu > .options li .even-more a:hover, header .menu .me li .more a:hover, header .menu .me li .even-more a:hover {
+              color: #174368;
+              background-color: #fff; }
+        @media screen and (max-width: 768px) {
+          header .menu > .options li, header .menu .me li {
+            text-align: left;
+            margin: 0;
             width: 100%;
-            height: 100%; }
-          header .menu > ul li:hover {
-            border-bottom: none;
-            background-color: #e6e6e6; } }
+            background-color: white;
+            padding: 1%; }
+            header .menu > .options li a, header .menu .me li a {
+              width: 100%;
+              height: 100%; }
+            header .menu > .options li:hover, header .menu .me li:hover {
+              border-bottom: none;
+              background-color: #e6e6e6; } }
+      @media screen and (max-width: 768px) {
+        header .menu > .options, header .menu .me {
+          padding: 0;
+          margin: 0;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          z-index: 6;
+          max-height: 0;
+          width: 110%;
+          overflow: hidden;
+          border-bottom: 4px solid #06d2c7; }
+          header .menu > .options > li a, header .menu .me > li a {
+            color: #06d2c7; } }
     header .menu input[type=checkbox] {
       display: none; }
       @media screen and (max-width: 768px) {
-        header .menu input[type=checkbox]:checked ~ ul {
+        header .menu input[type=checkbox]:checked ~ .options {
           max-height: 300%; } }
     header .menu label {
       color: #FFF;
@@ -158,15 +164,36 @@ header {
           z-index: 6;
           float: right; } }
 
-.logged-box {
-  height: 100%;
-  float: right;
-  border-left: 1px solid #FFF;
-  padding: 5px; }
-  .logged-box img {
-    height: 100%;
+.me {
+  position: relative;
+  color: #FFF; }
+  .me img {
     border-radius: 50%;
-    display: inline-block; }
+    display: inline-block;
+    width: 40px;
+    background-color: yellow;
+    height: 40px; }
+  .me ul {
+    position: absolute;
+    right: 0;
+    background-color: #06d2c7;
+    z-index: 5;
+    margin: 0;
+    padding: 0; }
+    .me ul li, .me ul a {
+      color: #FFF;
+      width: 100%;
+      text-align: center; }
+      .me ul li:hover, .me ul a:hover {
+        background-color: #FFF;
+        color: #06d2c7 !important; }
+    .me ul li {
+      padding: 5px; }
+      .me ul li:hover {
+        background-color: #FFF;
+        color: #06d2c7 !important; }
+  .me #me-menu {
+    display: none; }
 
 .posts {
   width: 55%;
@@ -176,7 +203,6 @@ header {
   padding-bottom: 30px; }
 
 .about-4u {
-  background-image: url(../../assets/img/bg.png);
   height: 100%;
   width: 45%;
   float: left;
@@ -342,6 +368,16 @@ footer {
     left: 0;
     top: 0; }
 
+.success {
+  padding: 15px;
+  background-color: #06d2c7;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff; }
+
 .card {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
   position: relative;
@@ -470,8 +506,13 @@ footer {
 
 .up {
   width: 50%;
+  padding: 25px;
   height: 100%;
   vertical-align: middle; }
+  @media screen and (max-width: 768px) {
+    .up {
+      width: 100%;
+      padding: 0px; } }
 
 .sign label {
   display: block; }
@@ -493,7 +534,6 @@ footer {
 
 .lf {
   float: left;
-  padding-right: 50px;
   text-align: center; }
   .lf h2, .lf p {
     margin-top: 15px;
@@ -547,6 +587,9 @@ footer {
   .btn-index:hover {
     background-color: #06D2C7;
     background-position: 0px -15px; }
+  .btn:disabled {
+    background-color: #d9fefc;
+    color: #4d4d4d; }
 
 .sign-btn {
   width: 40%;

@@ -2,7 +2,10 @@
     session_start();
     require('../models/courses.php');
     class Course {
-    
+
+        /**
+         *
+         */
         public static function create() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
             if ($_POST['code']!="" && $_POST['name']!="" && $_POST['institute']!="") {
