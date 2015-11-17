@@ -31,6 +31,10 @@
                    <p>Você também pode contribuir ainda mais com o 4U, <a href="#">saiba mais.</a></p>
                 </div>
                 <div class="sign up rg">
+                    <?php if (isset($_SESSION['msg'])) {
+                        echo '<h4 class="'.$_SESSION['msg'].'<h4>'; 
+                        unset($_SESSION['msg']);}
+                    ?>
                     <h2 class="top-msg">Crie o seu cadastro</h2>
                     <?php $action = 'create'; ?>
                     <?php include('../manager/includes/user-form.inc'); ?>
@@ -46,20 +50,6 @@
                 </form>
             </div>
         </section>
-        <script type="text/javascript" src="../vendors/jquery/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript">
-            function login(){
-                $(".container").hide();
-                $(".login-form").show();
-                $("#login").hide();
-                $("#signup").show();
-            }
-            function signup(){
-                $(".container").show();
-                $(".login-form").hide();
-                $("#login").show();
-                $("#signup").hide();
-            }
-        </script>
+        <?php include('layouts/footer.inc')?>
     </body>
 </html>

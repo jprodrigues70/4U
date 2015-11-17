@@ -23,11 +23,11 @@ class UserHasDisciplines extends Connect{
         return $stm->execute();
     }
 
-    public function exists() {
+    public function exists($id, $discipline) {
         $connect = static::start();
         $stm = $connect->prepare("SELECT * FROM users_has_disciplines WHERE user = :user AND discipline = :discipline");
-        $stm->bindValue(":user", $this->user, PDO::PARAM_INT);
-        $stm->bindValue(":discipline", $this->discipline, PDO::PARAM_INT);
+        $stm->bindValue(":user", $id, PDO::PARAM_INT);
+        $stm->bindValue(":discipline", $discipline, PDO::PARAM_INT);
         $stm->execute();
         return count($stm->fetchAll()) > 0;
     }

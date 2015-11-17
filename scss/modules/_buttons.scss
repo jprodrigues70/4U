@@ -47,6 +47,10 @@
         background-color: #06D2C7;
         background-position: 0px -15px;
     }
+    &:disabled {
+        background-color: lighten($base-c, 50%);
+        color: lighten(#000, 30%);
+    }
 }
 
 .sign-btn{

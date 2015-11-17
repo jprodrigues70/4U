@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('../models/disciplines.php');
+    require_once('../models/user_has_disciplines.php');
     class Discipline {
 
         public static function create() {
@@ -32,18 +33,24 @@
             }
             return header('Location:../manager/disciplines');
         }
-
+        
         public static function selectByInstitute() {
             $disciplines = Disciplines::selectByInstitute($_POST['institute']);
-            if($disciplines){
+            if($disciplines) {
                 foreach ($disciplines as $discipline) {
+                    $myDiscipline = UserHasDisciplines::exists($_SESSION['user'],$discipline->id);
+                    if($myDiscipline) {
+                        $button = "<button class='btn btn-default' disabled='true'>Seguindo...</button>";
+                    }else{
+                        $button = "<button class='btn btn-default' onclick='followDiscipline(".$discipline->id.", this)'>Seguir</button>";
+                    }
                     echo '
                     <div class="discipline card">
                         <div class="discipline-header">
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <a href="discipline?'.strtolower($discipline->code).'"><h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span></a>
-                            <button class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</button>
+                            '.$button.'
                         </div>
                     </div>';
                 }
@@ -68,7 +75,7 @@
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span>
-                            <a class="btn btn-default" onclick="followDiscipline('.$discipline->id.')">Seguir</a>
+                            <a class="btn btn-default" onclick="followDiscipline('.$discipline->id.', this)">Seguir</a>
                         </div>
                     </div>';
                 }
