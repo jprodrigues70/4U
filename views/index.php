@@ -23,7 +23,7 @@
         </header>
         <section>
             <div class="container">
-                <div class="up lf">
+                <div class="up lf card">
                    <h2>Bem-vindo,</h2>
                    <p>Você está em uma plataforma digital com objetivo de gerar conhecimento, aqui você pode compartilhar com os usuários documentos importantes como apostilas, trabalhos, projetos, entre outros. Faça seu cadastro, escolha suas matérias e fique ligado nos arquivos e comentários que seus colegas de classe estão fazendo sobre aquela disciplina.</p>
                    <p class="hashtags">#compatilheideias #adquiraconhecimento</p>
