@@ -82,7 +82,7 @@ class Disciplines extends Connect{
     
     public static function selectByUser($user) {
         $connect = static::start();
-        $stm = $connect->prepare("SELECT d.name FROM users_has_disciplines ud INNER JOIN disciplines d ON ud.discipline = d.id and ud.user = :user");
+        $stm = $connect->prepare("SELECT d.* FROM users_has_disciplines ud INNER JOIN disciplines d ON ud.discipline = d.id and ud.user = :user");
         $stm->bindValue(":user", $user, PDO::PARAM_INT);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_OBJ);
