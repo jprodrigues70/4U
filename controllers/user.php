@@ -11,11 +11,9 @@
                 if ($_FILES['picture']['name']) {
                 	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
 					$img_name = md5(uniqid(time())) . "." . $ext[1];
-					$img_path = "../assets/img/" . $img_name;
+					$img_path = "../uploads/" . $img_name;
 					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
 					$user->image = $img_name;
-                } else {
-                	$user->image = 'default.png';
                 }
                 try {
                     $user->insert();
@@ -39,13 +37,11 @@
             	if ($_FILES['picture']['name']) {
                 	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
 					$img_name = md5(uniqid(time())) . "." . $ext[1];
-					$img_path = "../assets/img/" . $img_name;
+					$img_path = "../uploads/" . $img_name;
 					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
 					$user->image = $img_name;
                 } elseif ($_POST['image']) {
                 	$user->image = $_POST['image'];
-                } else {
-                	$user->image = 'default.png';
                 }
                 try {
                 	$hash = md5($_POST['password']);
@@ -66,6 +62,8 @@
             $_SESSION['msg'] = 'fail">Não é possível deletar este usuário.';
             if ($_GET['id']!="") {
                 try {
+                	$user = Users::select($_GET['id']);
+                	if ($user->image) unlink('../uploads/' . $user->image);
                     Users::delete($_GET['id']);
                     $_SESSION['msg'] = 'success">Usuário deletado com sucesso.';
                 }
