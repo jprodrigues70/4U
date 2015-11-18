@@ -40,7 +40,7 @@ class Comments extends Connect{
 
     public static function allByPost($post) {
         $connect = static::start();
-        $stm = $connect->prepare("SELECT * FROM comments WHERE post = :post ORDER BY time DESC");
+        $stm = $connect->prepare("SELECT * FROM comments WHERE post = :post ORDER BY time ASC");
         $stm->bindValue(":post", $post, PDO::PARAM_INT);
         $stm->execute();
         $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());

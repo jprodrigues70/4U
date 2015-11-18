@@ -42,5 +42,12 @@ class Files extends Connect{
         $stm->execute();
         return $stm->fetch(PDO::FETCH_OBJ);
     }
+    
+    public static function incrementDownload($id){
+        $connect = static::start();
+        $stm = $connect->prepare("UPDATE files SET downloads = downloads+1 WHERE id=:id");
+        $stm->bindValue(":id", $id, PDO::PARAM_INT);
+        return $stm->execute();
+    }
 }
 ?>

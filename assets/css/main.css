@@ -140,7 +140,7 @@ header {
           left: 0;
           z-index: 6;
           max-height: 0;
-          width: 110%;
+          width: 100%;
           overflow: hidden;
           border-bottom: 4px solid #06d2c7; }
           header .menu > .options > li a, header .menu .me > li a {
@@ -198,9 +198,14 @@ header {
 .posts {
   width: 55%;
   float: left;
-  padding-right: 0;
   position: relative;
   padding-bottom: 30px; }
+  @media screen and (max-width: 768px) {
+    .posts {
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .posts {
+      padding-right: 0; } }
 
 .about-4u {
   height: 100%;
@@ -211,6 +216,9 @@ header {
     background-color: #929292 !important;
     color: #FFF;
     margin-top: 15px; }
+  @media screen and (max-width: 768px) {
+    .about-4u {
+      display: none; } }
 
 .left-menu {
   width: 30%;
@@ -295,11 +303,11 @@ footer {
   footer .contact {
     position: relative;
     float: left;
-    width: 100%;
+    width: 100.0%;
     padding: 0 15px; }
     @media screen and (min-width: 768px) {
       footer .contact {
-        width: 50%; } }
+        width: 50.0%; } }
     footer .contact .logo-dcc {
       height: 120px;
       margin-bottom: 5px; }
@@ -367,6 +375,10 @@ footer {
     z-index: 3;
     left: 0;
     top: 0; }
+
+.select-container {
+  width: 100%;
+  text-align: right; }
 
 .success {
   padding: 15px;
@@ -451,15 +463,37 @@ footer {
   padding: 15px; }
   .post-footer {
     text-align: right; }
+  .post-content {
+    height: 60px;
+    margin: 10px 0; }
+    .post-content .file-image, .post-content .file-description {
+      float: left;
+      height: 100%;
+      overflow: hidden; }
+    .post-content i {
+      font-size: 60px;
+      margin-right: 10px; }
+  .post input {
+    width: calc(100% - 50px) !important; }
 
 .comments-box {
   padding: 15px;
   background-color: #F6F7F8;
   width: 100%; }
   .comments-box .comment {
+    position: relative;
     margin-bottom: 15px; }
     .comments-box .comment img {
       float: left; }
+    .comments-box .comment .time {
+      font-size: 11px; }
+    .comments-box .comment .c-action {
+      position: absolute;
+      right: 0;
+      color: #AAA;
+      cursor: pointer; }
+      .comments-box .comment .c-action:hover {
+        color: #000; }
   .comments-box img {
     width: 40px;
     height: 40px;
@@ -474,12 +508,20 @@ footer {
     width: calc(100% - 50px);
     display: inline-block;
     margin-top: 5px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 14px; }
+  .comments-box .do-comment form {
+    width: calc(90% - 50px);
+    display: inline-block; }
   .comments-box .do-comment input {
-    width: calc(100% - 50px);
+    width: 100%;
     background-color: #FFF;
     border: 1px solid #ABCFCD;
     padding: 5px; }
+  .comments-box .do-comment .mini-send {
+    width: calc(10% - 6px);
+    padding: 5px;
+    height: 29px; }
 
 #signup {
   display: none; }
@@ -553,7 +595,15 @@ footer {
   border-radius: 2px;
   display: inline-block;
   padding: 5px 15px;
-  background-color: #FFF; }
+  background-color: #FFF;
+  cursor: default; }
+
+.tag-discipline {
+  cursor: pointer;
+  border-color: #ff8a84; }
+  .tag-discipline:hover {
+    color: #FFF;
+    background-color: #ff8a84; }
 
 .btn {
   cursor: pointer;

@@ -31,10 +31,13 @@
             }
             header('Location:../views/home');
         }
-
-        public static function delete() {
-            
-        }
     }
-    Post::$_POST['action']();
+    $postActions = array('create');
+    $getActions = array('delete');
+    if(isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
+        Post::$_POST['action']();
+    }
+    elseif(isset($_GET['action']) && in_array($_GET['action'], $getActions)) {
+        Post::$_GET['action']();
+    }
 ?>

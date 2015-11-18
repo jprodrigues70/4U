@@ -119,12 +119,25 @@
     background-color: #F6F7F8;
     width: 100%;
     .comment {
+        position: relative;
         margin-bottom: 15px;
         img {
             float: left;
         }
         &:after {
             @extend %clearFix;
+        }
+        .time {
+            font-size: 11px;
+        }
+        .c-action {
+            position: absolute;
+            right: 0;
+            color: #AAA;
+            cursor: pointer;
+            &:hover {
+                color: #000;
+            }
         }
     }
     img {
@@ -140,6 +153,7 @@
         display: inline-block;
         margin-top: 5px;
         margin-bottom: 0;
+        font-size: 14px;
     }
     .do-comment {
         form {

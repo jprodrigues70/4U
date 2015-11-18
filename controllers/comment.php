@@ -1,11 +1,11 @@
 <?php
     session_start();
     require_once('../models/comments.php');
-    class Post {
+    class Comment {
 
         public static function create() {
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
-            if ($_POST['text'] != "" && $_SESSION['user'] != "") {
+            if ($_POST['post'] != "" && $_POST['text'] != "" && $_SESSION['user'] != "") {
                 $_POST['user'] = $_SESSION['user'];
                 $_POST['time'] = date('Y-m-d H:i:s', strtotime('now'));
                 
@@ -26,10 +26,13 @@
                 }
             }
         }
-
-        public static function delete() {
-            
-        }
     }
-    Post::$_POST['action']();
+    $postActions = array('create');
+    $getActions = array('delete');
+    if(isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
+        Comment::$_POST['action']();
+    }
+    elseif(isset($_GET['action']) && in_array($_GET['action'], $getActions)) {
+        Comment::$_GET['action']();
+    }
 ?>

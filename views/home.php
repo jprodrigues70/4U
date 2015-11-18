@@ -61,7 +61,7 @@
                             <ul id="c<?php echo $count; ?>" class="config-menu">
                                 <li>Denunciar abuso</li>
                                 <?php if($post->user->id == $_SESSION['user']): ?>
-                                <a href="#"><li>Excluir publicação</li></a>
+                                <a href=""><li>Excluir publicação</li></a>
                                 <?php endif; ?>
                             </ul>
                         </div>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="tags">
                                 <div class="tag"><?php echo $post->discipline->institute->name ?></div>
-                                <a href="discipline?<?php echo strtolower($post->discipline->code) ?>"><div class="tag" style="border-color: #ff8a84"><?php echo $post->discipline->code ?></div></a>
+                                <a href="discipline?<?php echo strtolower($post->discipline->code) ?>"><div class="tag tag-discipline"><?php echo $post->discipline->code ?></div></a>
                             </div>
                             <?php if($post->file): ?>
                             <div class="post-content">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <form class="post-footer" action="../controllers/file.php" method="post">
-                                <span><?php echo $post->file->downloads; ?> downloads </span>
+                                <span><?php echo $post->file->downloads; ?> download<?php echo ($post->file->downloads > 1) ? 's' : null;?> </span>
                                 <input type="hidden" name="file" value="<?php echo $post->file->id; ?>">
                                 <button class="btn btn-default" name="action" value="download"><i class="fa fa-download"></i> Download</button>
                             </form>
@@ -93,10 +93,18 @@
                     <div id="c-box<?php echo $count; ?>" class="comments-box">
                         <?php foreach($post->comments as $comment): ?>
                         <div class="comment">
+                            <?php if($comment->user->id == $_SESSION['user']): ?>
+                            <i class="c-action fa fa-remove"></i>
+                            <?php else: ?>
+                            <i class="c-action fa fa-sort-down"></i>
+                            <ul id="c<?php echo $count; ?>" class="config-menu">
+                                <li>Denunciar abuso</li>
+                            </ul>
+                            <?php endif; ?>
                             <img src="../assets/img/4u.png" alt="">
                             <p><b><?php echo $comment->user->name; ?> - </b><?php echo $comment->text; ?></p>
-                            <?php $date =  parseDate($post->time); ?>
-                            <span><?php echo $date->short.', '.$date->hour ; ?></span>
+                            <?php $date = NULL;$date =  parseDate($post->time); ?>
+                            <span class="time"><?php echo $date->short.', '.$date->hour ; ?></span>
                         </div>
                         <?php endforeach; ?>
                         <div class="do-comment">
@@ -125,6 +133,7 @@
             <div id="footer" class="about-4u-footer card">
                 <p>Projeto para aprovação na disciplina de Computador, Ética e Sociedade. 2015.</p>
             </div>
+            <a href="https://github.com/jprodrigues70/4U" target="_blank"><i class="fa fa-github"></i> Contribua conosco!</a>
         </section>
         <section id="modal-container" class="modal-fa">
             <div id="modal">

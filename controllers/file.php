@@ -6,6 +6,7 @@ require_once('../models/files.php');
         public static function download(){
             $file = Files::select($_POST['file']);
             if(file_exists('../uploads/files/'.$file->file)) {
+                Files::incrementDownload($file->id);
                 $path = pathinfo($file->file);
                 header('Content-Type: application/'.$path['extension']);
                 header('Content-Disposition: attachment; filename="'.$file->title.'.'.$path['extension'].'"');
