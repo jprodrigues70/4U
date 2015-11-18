@@ -1,9 +1,14 @@
 .posts {
     width: 55%;
     float: left;
-    padding-right: 0;
     position: relative;
     padding-bottom: 30px;
+    @include device-width($sm, max-width){
+        width: 100%;
+    }
+    @include device-width($sm){
+        padding-right: 0;
+    }
 }
 
 .about-4u {
@@ -15,6 +20,9 @@
         background-color: #929292!important;
         color: #FFF;
         margin-top: 15px;
+    }
+    @include device-width($sm, max-width){
+        display: none;
     }
 }
 

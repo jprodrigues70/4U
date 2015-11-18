@@ -3,6 +3,7 @@
     require_once('../models/posts.php');
     require_once('../models/disciplines.php');
     require_once('../helpers/session.php');
+    require_once('../helpers/date.php');
     on();
     if(isset($_SESSION['user'])) {
         $posts = Posts::allByUserFollowing($_SESSION['user']);
@@ -54,7 +55,8 @@
                         <div class="post-header">
                             <img src="../assets/img/pp.jpeg" alt="">
                             <h4><?php echo $post->user->name; ?></h4>
-                            <span><?php echo $post->time; ?></span><!--23 AGO 2015, 22:01-->
+                            <?php $date =  parseDate($post->time); ?>
+                            <span><?php echo $date->short.', '.$date->hour ; ?></span><!--23 AGO 2015, 22:01-->
                             <i onclick="config('c<?php echo $count; ?>')" class="config fa fa-cog"></i>
                             <ul id="c<?php echo $count; ?>" class="config-menu">
                                 <li>Denunciar abuso</li>
@@ -88,17 +90,23 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="comments-box">
+                    <div id="c-box<?php echo $count; ?>" class="comments-box">
                         <?php foreach($post->comments as $comment): ?>
                         <div class="comment">
                             <img src="../assets/img/4u.png" alt="">
                             <p><b><?php echo $comment->user->name; ?> - </b><?php echo $comment->text; ?></p>
+                            <?php $date =  parseDate($post->time); ?>
+                            <span><?php echo $date->short.', '.$date->hour ; ?></span>
                         </div>
                         <?php endforeach; ?>
                         <div class="do-comment">
                             <img src="../<?php echo (isset($_SESSION['image'])) ? 'uploads/users/' . $_SESSION['image'] : 'assets/img/default.png'; ?>" alt="">
-                            <input type="text" placeholder="Deixe um comentário">
-                            <button class="btn btn-default mini-send"><i class="fa fa-send"></i></button>
+                            <form id="my-post-comment<?php echo $count; ?>">
+                                <input type="hidden" name="post" value="<?php echo $post->id; ?>">
+                                <input type="hidden" name="action" value="create">
+                                <input type="text" name="text" placeholder="Deixe um comentário">
+                            </form>
+                            <button class="btn btn-default mini-send" type="button" onclick="comment('<?php echo $count; ?>')"><i class="fa fa-send"></i></button>
                         </div>
                     </div>
                 </div>
@@ -146,7 +154,16 @@
         <?php include('layouts/footer.inc'); ?>
         <script src="../vendors/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
         <script>
-            
+            function comment(num){
+                $.ajax({
+                    type: "POST",
+                    url: "../controllers/comment.php",
+                    data: $("#my-post-comment"+num).serialize()
+                }).done(function(data) {
+                    $("#c-box"+num).children('.comment').remove();
+                    $( "#c-box"+num ).prepend(data);
+                });
+            }
         </script>
     </body>
 </html>

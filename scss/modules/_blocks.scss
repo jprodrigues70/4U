@@ -142,8 +142,12 @@
         margin-bottom: 0;
     }
     .do-comment {
-        input {
+        form {
             width: calc(90% - 50px);
+            display: inline-block;
+        }
+        input {
+            width: 100%;
             background-color: #FFF;
             border: 1px solid #ABCFCD;
             padding: 5px;
