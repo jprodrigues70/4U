@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `4u`.`posts` (
   `text` VARCHAR(255) NOT NULL,
   `time` DATETIME NOT NULL,
   `user` INT UNSIGNED NOT NULL,
-  `file` INT UNSIGNED NOT NULL,
+  `file` INT UNSIGNED,
   `discipline` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -163,7 +163,6 @@ CREATE TABLE IF NOT EXISTS `4u`.`posts` (
   INDEX `fk_posts_files1_idx` (`file` ASC),
   UNIQUE INDEX `file_UNIQUE` (`file` ASC),
   INDEX `fk_posts_disciplines1_idx` (`discipline` ASC),
-  UNIQUE INDEX `discipline_UNIQUE` (`discipline` ASC),
   CONSTRAINT `fk_posts_users1`
     FOREIGN KEY (`user`)
     REFERENCES `4u`.`users` (`id`)

@@ -95,6 +95,23 @@
     &-footer {
         text-align: right;
     }
+    &-content {
+        height: 60px;
+        margin: 10px 0;
+        .file-image, .file-description {
+            float: left;
+            height: 100%;
+            overflow: hidden;
+        }
+        i {
+            font-size: 60px;
+            margin-right: 10px;
+        }
+        
+    }
+    input {
+        width: calc(100% - 50px)!important;
+    }
 }
 
 .comments-box {
@@ -126,10 +143,16 @@
     }
     .do-comment {
         input {
-            width: calc(100% - 50px);
+            width: calc(90% - 50px);
             background-color: #FFF;
             border: 1px solid #ABCFCD;
             padding: 5px;
+        }
+        
+        .mini-send {
+            width: calc(10% - 6px);
+            padding: 5px;
+            height: 29px;
         }
     }
 }

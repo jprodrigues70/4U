@@ -74,7 +74,7 @@ document.getElementById('upfile').onclick = function(){
 
 document.getElementById('modal-container').onclick = function(e) {
     target = e.target;
-    if (target.id == 'modal'||($(target).parents().is('#modal')  && target.id != "dismiss-modal")){
+    if (target.id == 'modal'||($(target).parents().is('#modal')  && (target.id != "dismiss-modal" && target.id != "ok"))){
         return true;
     }
     else {
