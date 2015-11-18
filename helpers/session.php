@@ -13,6 +13,10 @@
         }
     }
 
+    function level() {
+        if ($_SESSION['level'] == 1) return true;
+    }
+
     function msg(){
         if(isset($_SESSION['msg'])){
             $msg='<div class="msg '.$_SESSION['msg'].'</div>';
