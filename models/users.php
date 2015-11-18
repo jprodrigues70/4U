@@ -19,23 +19,25 @@ class Users extends Connect{
 
     public function insert() {
         $connect = static::start();
-        $stm = $connect->prepare("INSERT INTO users(name, email, password, level, course) VALUES (:name, :email, :password, :level, :course)");
+        $stm = $connect->prepare("INSERT INTO users(name, email, password, level, course, image) VALUES (:name, :email, :password, :level, :course, :image)");
         $stm->bindValue(":name",$this->name,PDO::PARAM_STR);
         $stm->bindValue(":email",$this->email,PDO::PARAM_STR);
         $stm->bindValue(":password",$this->password,PDO::PARAM_STR);
         $stm->bindValue(":level",$this->level,PDO::PARAM_INT);
         $stm->bindValue(":course",$this->course,PDO::PARAM_INT);
+        $stm->bindValue(":image",$this->image,PDO::PARAM_STR);
         return $stm->execute();
     }
 
     public function update($id) {
         $connect = static::start();
-        $stm = $connect->prepare("UPDATE users SET name=:name, email=:email, level=:level, course=:course WHERE id=:id");
+        $stm = $connect->prepare("UPDATE users SET name=:name, email=:email, level=:level, course=:course, image=:image WHERE id=:id");
         $stm->bindValue(":id", $id, PDO::PARAM_INT);
         $stm->bindValue(":name",$this->name,PDO::PARAM_STR);
         $stm->bindValue(":email",$this->email,PDO::PARAM_STR);
         $stm->bindValue(":level",$this->level,PDO::PARAM_INT);
         $stm->bindValue(":course",$this->course,PDO::PARAM_INT);
+        $stm->bindValue(":image",$this->image,PDO::PARAM_STR);
         return $stm->execute();
     }
 

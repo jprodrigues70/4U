@@ -8,7 +8,7 @@
             <li><a href="disciplines.php">Disciplinas</a></li>
         </ul>
         <ul class="me" id="me-menu-bt">
-            <li><?php echo $_SESSION['name']; ?> <img src="" alt=""></li>
+            <li><?php echo $_SESSION['name']; ?> <img src="../assets/img/<?php echo Users::select($_SESSION['user'])->image ?>" alt=""></li>
             <ul id="me-menu">
                 <a href=""><li>Perfil</li></a>
                 <a href="../controllers/logout.php"><li>Sair</li></a>

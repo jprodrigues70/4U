@@ -4,18 +4,19 @@
         <div class="fake">
             <i class="icon-picture"></i>
         </div>
-        <img id="prev-img">
+        <img id="prev-img" src="../assets/img/<?php echo isset($user) ? $user->image : 'default.png' ; ?>">
         <?php if ($noHomePage):?>
-            <input type="file" name="picture" value="" id="changer">
+            <input type="file" name="picture" value="<?php echo isset($user) ? $user->image : NULL ; ?>" id="changer">
         <?php endif; ?>
     </div>
+    <?php if (isset($user)) echo '<input type="hidden" name="image" value="'.$user->image.'"' ?>
     <div class="field has-label">
         <label for="name">Nome de Usuário *</label>
-        <input type="text" name="name" id="name" value="<?= isset($user) ? $user->name : NULL ;?>" required>
+        <input type="text" name="name" id="name" value="<?php echo isset($user) ? $user->name : NULL ;?>" required>
     </div>
     <div class="field has-label">
         <label for="email">E-mail *</label>
-        <input type="email" name="email" id="email" value="<?= isset($user) ? $user->email : NULL ;?>" required>
+        <input type="email" name="email" id="email" value="<?php echo isset($user) ? $user->email : NULL ;?>" required>
     </div>
     <?php if ($action == 'create'): ?>
         <div class="form-controled">

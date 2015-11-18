@@ -6,3 +6,4 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../assets/css/main.css">
+<link rel="icon" type="image/png" href="../assets/img/4u.png">
