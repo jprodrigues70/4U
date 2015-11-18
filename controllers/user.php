@@ -20,7 +20,7 @@
                     $_SESSION['msg'] = 'success">Usuário criado com sucesso, seja bem-vindo!';
                 }
                 catch(PDOException $e) {
-                    $_SESSION['msg'] = 'fail">Ocorreu um erro na criação do usuário.';
+                    $_SESSION['msg'] = 'fail">Ocorreu um erro na criação do usuário.'.$e;
                 }
             }
             if ($_SESSION["URL"] == 1){

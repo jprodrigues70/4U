@@ -61,7 +61,7 @@
                             <ul id="c<?php echo $count; ?>" class="config-menu">
                                 <li>Denunciar abuso</li>
                                 <?php if($post->user->id == $_SESSION['user']): ?>
-                                <a href=""><li>Excluir publicação</li></a>
+                                    <a href=""><li>Excluir publicação</li></a>
                                 <?php endif; ?>
                             </ul>
                         </div>
@@ -92,20 +92,20 @@
                     </div>
                     <div id="c-box<?php echo $count; ?>" class="comments-box">
                         <?php foreach($post->comments as $comment): ?>
-                        <div class="comment">
-                            <?php if($comment->user->id == $_SESSION['user']): ?>
-                            <i class="c-action fa fa-remove"></i>
-                            <?php else: ?>
-                            <i class="c-action fa fa-sort-down"></i>
-                            <ul id="c<?php echo $count; ?>" class="config-menu">
-                                <li>Denunciar abuso</li>
-                            </ul>
-                            <?php endif; ?>
-                            <img src="../<?php echo (isset($comment->user->image)) ? 'uploads/users/' . $comment->user->image : 'assets/img/default.png'; ?>" alt="">
-                            <p><b><?php echo $comment->user->name; ?> - </b><?php echo $comment->text; ?></p>
-                            <?php $date = NULL;$date =  parseDate($post->time); ?>
-                            <span class="time"><?php echo $date->short.', '.$date->hour ; ?></span>
-                        </div>
+                            <div id="comment-<?php echo $comment->id; ?>" class="comment">
+                                <?php if($comment->user->id == $_SESSION['user']): ?>
+                                    <i class="c-action fa fa-remove" onclick="removeComment(<?php echo $comment->id; ?>)"></i>
+                                <?php else: ?>
+                                    <i class="c-action fa fa-sort-down"></i>
+                                    <ul id="c<?php echo $count; ?>" class="config-menu">
+                                        <li>Denunciar abuso</li>
+                                    </ul>
+                                <?php endif; ?>
+                                <img src="../<?php echo (isset($comment->user->image)) ? 'uploads/users/' . $comment->user->image : 'assets/img/default.png'; ?>" alt="">
+                                <p><b><?php echo $comment->user->name; ?> - </b><?php echo $comment->text; ?></p>
+                                <?php $date = parseDate($comment->time); ?>
+                                <span class="time"><?php echo $date->short.', '.$date->hour ; ?></span>
+                            </div>
                         <?php endforeach; ?>
                         <div class="do-comment">
                             <img src="../<?php echo (isset($_SESSION['image'])) ? 'uploads/users/' . $_SESSION['image'] : 'assets/img/default.png'; ?>" alt="">
@@ -170,7 +170,7 @@
                     data: $("#my-post-comment"+num).serialize()
                 }).done(function(data) {
                     $("#c-box"+num).children('.comment').remove();
-                    $( "#c-box"+num ).prepend(data);
+                    $( "#c-box"+num).prepend(data);
                 });
             }
         </script>
