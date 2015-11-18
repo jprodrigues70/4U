@@ -4,7 +4,7 @@
         <div class="fake">
             <i class="icon-picture"></i>
         </div>
-        <img id="prev-img" src="../<?php echo isset($user->image) ? 'uploads/' . $user->image : 'assets/img/default.png' ; ?>">
+        <img id="prev-img" src="../<?php echo isset($user->image) ? 'uploads/users/' . $user->image : 'assets/img/default.png' ; ?>">
         <?php if ($noHomePage):?>
             <input type="file" name="picture" value="<?php echo isset($user) ? $user->image : NULL ; ?>" id="changer">
         <?php endif; ?>

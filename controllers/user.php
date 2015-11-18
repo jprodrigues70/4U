@@ -11,7 +11,7 @@
                 if ($_FILES['picture']['name']) {
                 	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
 					$img_name = md5(uniqid(time())) . "." . $ext[1];
-					$img_path = "../uploads/" . $img_name;
+					$img_path = "../uploads/users/" . $img_name;
 					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
 					$user->image = $img_name;
                 }
@@ -37,7 +37,7 @@
             	if ($_FILES['picture']['name']) {
                 	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
 					$img_name = md5(uniqid(time())) . "." . $ext[1];
-					$img_path = "../uploads/" . $img_name;
+					$img_path = "../uploads/users/" . $img_name;
 					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
 					$user->image = $img_name;
                 } elseif ($_POST['image']) {
@@ -63,7 +63,7 @@
             if ($_GET['id']!="") {
                 try {
                 	$user = Users::select($_GET['id']);
-                	if ($user->image) unlink('../uploads/' . $user->image);
+                	if ($user->image) unlink('../uploads/users/' . $user->image);
                     Users::delete($_GET['id']);
                     $_SESSION['msg'] = 'success">Usuário deletado com sucesso.';
                 }
