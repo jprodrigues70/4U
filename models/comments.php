@@ -4,14 +4,13 @@ require_once('../models/users.php');
 require_once('../models/disciplines.php');
 require_once('../models/institutes.php');
 require_once('../models/files.php');
-require_once('../models/comments.php');
+
 class Comments extends Connect{
     public $id;
     public $text;
     public $time;
     public $user;
     public $post;
-    public $comments;
 
     function __construct($attributes = array())
     {
@@ -45,6 +44,22 @@ class Comments extends Connect{
         $stm->execute();
         $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());
         return $stm->fetchAll();
+    }
+
+    public function delete() {
+        $connect = static::start();
+        $stm = $connect->prepare("DELETE FROM comments WHERE id = :id");
+        $stm->bindValue(":id", $this->id, PDO::PARAM_INT);
+        return $stm->execute();
+    }
+
+    public static function find($id) {
+        $connect = static::start();
+        $stm = $connect->prepare("SELECT * FROM comments WHERE id = :id");
+        $stm->bindValue(":id", $id, PDO::PARAM_INT);
+        $stm->execute();
+        $stm->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        return $stm->fetch();
     }
 }
 ?>

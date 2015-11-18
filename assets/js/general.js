@@ -18,6 +18,11 @@ function unfollowDiscipline(id){
         return false;
     });
 }
+function removeComment(id){
+    $.get('../controllers/comment.php',{ comment: id, action: 'delete'}, function(result) {
+        $("#comment-"+id).remove();
+    });
+}
 $('.btn-area').click(function(){
     $('.btn-area').removeClass('active');
     $(this).addClass('active');
