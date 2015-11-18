@@ -8,6 +8,13 @@
             if ($_POST['name']!="" && $_POST['email']!="" && $_POST['password']!="" && $_POST['course']!="") {
                 if($_POST['level'] == "") $_POST['level'] = "0";
                 $user = new Users($_POST);
+                if ($_FILES['picture']['name']) {
+                	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
+					$img_name = md5(uniqid(time())) . "." . $ext[1];
+					$img_path = "../uploads/users/" . $img_name;
+					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
+					$user->image = $img_name;
+                }
                 try {
                     $user->insert();
                     $_SESSION['msg'] = 'success">Usuário criado com sucesso, seja bem-vindo!';
@@ -27,6 +34,15 @@
             $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
             if($_POST['id']!="" && $_POST['name']!="" && $_POST['email']!=""&& $_POST['level']!="" && $_POST['course']!="") {
             	$user = new Users($_POST);
+            	if ($_FILES['picture']['name']) {
+                	preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $_FILES['picture']["name"], $ext);
+					$img_name = md5(uniqid(time())) . "." . $ext[1];
+					$img_path = "../uploads/users/" . $img_name;
+					move_uploaded_file($_FILES['picture']['tmp_name'], $img_path);
+					$user->image = $img_name;
+                } elseif ($_POST['image']) {
+                	$user->image = $_POST['image'];
+                }
                 try {
                 	$hash = md5($_POST['password']);
 	            	if ($hash != 'd41d8cd98f00b204e9800998ecf8427e') {
@@ -46,6 +62,8 @@
             $_SESSION['msg'] = 'fail">Não é possível deletar este usuário.';
             if ($_GET['id']!="") {
                 try {
+                	$user = Users::select($_GET['id']);
+                	if ($user->image) unlink('../uploads/users/' . $user->image);
                     Users::delete($_GET['id']);
                     $_SESSION['msg'] = 'success">Usuário deletado com sucesso.';
                 }

@@ -1,7 +1,7 @@
 RewriteEngine on
-ErrorDocument 404 http://localhost/pesquisas/error
-ErrorDocument 403 http://localhost/pesquisas/error
-ErrorDocument 500 http://localhost/pesquisas/error
+ErrorDocument 404 http://localhost/4u/error
+ErrorDocument 403 http://localhost/4u/error
+ErrorDocument 500 http://localhost/4u/error
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php

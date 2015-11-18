@@ -1,5 +1,6 @@
 <?php
 require_once('../helpers/connect.php');
+require_once('users.php');
 class Institutes extends Connect{
     public $name;
     public $area;
