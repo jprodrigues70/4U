@@ -1,5 +1,5 @@
     <header>
-        <a href=""><img src="../assets/img/4u.png" alt="4U"></a>
+        <a href="../views/index.php"><img src="../assets/img/4u.png" alt="4U"></a>
         <input type="checkbox" id="menu" class="toggle">
         <label id="menu-toggle" for="menu" onclick><i class="fa fa-bars"></i></label>
         <nav class="menu">

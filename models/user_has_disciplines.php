@@ -31,5 +31,13 @@ class UserHasDisciplines extends Connect{
         $stm->execute();
         return count($stm->fetchAll()) > 0;
     }
+
+    public static function delete($user, $discipline) {
+        $connect = static::start();
+        $stm = $connect->prepare("DELETE FROM users_has_disciplines WHERE user=:user AND discipline=:discipline LIMIT 1");
+        $stm->bindValue(":user", $user, PDO::PARAM_INT);
+        $stm->bindValue(":discipline", $discipline, PDO::PARAM_INT);
+        return $stm->execute();
+    }
 }
 ?>

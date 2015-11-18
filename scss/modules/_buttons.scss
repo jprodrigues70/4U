@@ -26,6 +26,13 @@
             background-color: lighten($base-c, 2%);
         }
     }
+    &-danger {
+        background-color: #ff8a84;
+        color: #FFF;
+        &:hover {
+            background-color: lighten($base-c, 2%);
+        }
+    }
     &:hover {
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.18), 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
     }
