@@ -7,16 +7,13 @@
         public static function followDiscipline() {
             if (isset($_SESSION['user']) && isset($_POST['discipline'])) {
                 $userHasDiscipline = new UserHasDisciplines(array("user" => $_SESSION['user'], "discipline" => $_POST['discipline']));
-                if(!$userHasDiscipline->exists() && $userHasDiscipline->insert()) {
-                    $_SESSION['msg'] = 'success">A disciplina foi adicionada.';
-                    var_dump("A disciplina foi adicionada.");
-                } else {
-                    $_SESSION['msg'] = 'fail">Não foi possivel seguir essa disciplina.';
-                    var_dump("Não foi possivel seguir essa disciplina.");
-                }
-            } else {
-                $_SESSION['msg'] = 'fail">Informações obrigatórias não informadas.';
-                var_dump("Informações obrigatórias não informadas.");
+                if (!$userHasDiscipline->exists()) $userHasDiscipline->insert();
+            }
+        }
+
+        public static function unfollowDiscipline() {
+            if (isset($_SESSION['user']) && isset($_POST['discipline'])) {
+                UserHasDisciplines::delete($_SESSION['user'], $_POST['discipline']);
             }
         }
     }
