@@ -1,3 +1,6 @@
+<?php
+    require_once('../helpers/session.php');
+?>
 <header>
     <a href="index.php"><img src="../assets/img/4u-ico-b.png" class="menu-logo"></a>
     <nav class="menu" role="full-horizontal">
@@ -11,7 +14,7 @@
             <li><?php echo $_SESSION['name']; ?> <img src="../<?php echo (isset($_SESSION['image'])) ? 'uploads/users/' . $_SESSION['image'] : 'assets/img/default.png'; ?>" alt=""></li>
             <ul id="me-menu">
                 <a href=""><li>Perfil</li></a>
-                <?php if (level() == true) { ?> <a href="../manager/disciplines.php"><li>Administração</li></a> <?php } ?>
+                <?php if (level() == true) : ?><a href="../manager/disciplines.php"><li>Administração</li></a><?php endif; ?>
                 <a href="../controllers/logout.php"><li>Sair</li></a>
             </ul>
         </ul>

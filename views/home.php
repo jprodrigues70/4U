@@ -53,7 +53,7 @@
                 <div class="card">
                     <div class="post">
                         <div class="post-header">
-                            <img src="../assets/img/pp.jpeg" alt="">
+                            <img src="../<?php echo (isset($post->user->image)) ? 'uploads/users/' . $post->user->image : 'assets/img/default.png'; ?>" alt="">
                             <h4><?php echo $post->user->name; ?></h4>
                             <?php $date =  parseDate($post->time); ?>
                             <span><?php echo $date->short.', '.$date->hour ; ?></span><!--23 AGO 2015, 22:01-->
@@ -101,7 +101,7 @@
                                 <li>Denunciar abuso</li>
                             </ul>
                             <?php endif; ?>
-                            <img src="../assets/img/4u.png" alt="">
+                            <img src="../<?php echo (isset($comment->user->image)) ? 'uploads/users/' . $comment->user->image : 'assets/img/default.png'; ?>" alt="">
                             <p><b><?php echo $comment->user->name; ?> - </b><?php echo $comment->text; ?></p>
                             <?php $date = NULL;$date =  parseDate($post->time); ?>
                             <span class="time"><?php echo $date->short.', '.$date->hour ; ?></span>
