@@ -75,7 +75,7 @@
                             <img src="../assets/img/ppd.jpeg" alt="">
                             <h4>'.$discipline->code.'</h4>
                             <span>'.$discipline->name.'</span>
-                            <a class="btn btn-default" onclick="followDiscipline('.$discipline->id.', this)">Seguir</a>
+                            <button class="btn btn-default" onclick="followDiscipline('.$discipline->id.', this)">Seguir</button>
                         </div>
                     </div>';
                 }

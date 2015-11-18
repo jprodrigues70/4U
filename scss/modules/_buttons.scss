@@ -28,9 +28,10 @@
     }
     &-danger {
         background-color: #ff8a84;
+        border-color: #ff8a84;
         color: #FFF;
         &:hover {
-            background-color: lighten($base-c, 2%);
+            background-color: lighten(#ff8a84, 2%);
         }
     }
     &:hover {

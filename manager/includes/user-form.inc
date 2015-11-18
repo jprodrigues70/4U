@@ -1,14 +1,14 @@
 <?php $noHomePage = ($_SERVER['SCRIPT_NAME'] != "/4U/views/index.php") ;?>
    <form action="../controllers/user.php" method="POST" enctype="multipart/form-data" class="s-form">
-    <div class="prev-img" style="background-image: url(../assets/img/logo-gT.png);">
-        <div class="fake">
-            <i class="icon-picture"></i>
-        </div>
-        <img id="prev-img" src="../<?php echo isset($user->image) ? 'uploads/users/' . $user->image : 'assets/img/default.png' ; ?>">
-        <?php if ($noHomePage):?>
+    <?php if ($noHomePage):?>
+        <div class="prev-img" style="background-image: url(../assets/img/logo-gT.png);">
+            <div class="fake">
+                <i class="icon-picture"></i>
+            </div>
+            <img id="prev-img" src="../<?php echo isset($user->image) ? 'uploads/users/' . $user->image : 'assets/img/default.png' ; ?>">
             <input type="file" name="picture" value="<?php echo isset($user) ? $user->image : NULL ; ?>" id="changer">
-        <?php endif; ?>
-    </div>
+        </div>
+    <?php endif; ?>
     <?php if (isset($user)) echo '<input type="hidden" name="image" value="'.$user->image.'"' ?>
     <div class="field has-label">
         <label for="name">Nome de Usuário *</label>
