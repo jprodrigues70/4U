@@ -10,10 +10,8 @@ class Comments extends Connect{
     public $text;
     public $time;
     public $user;
-    public $file;
-    public $discipline;
+    public $post;
     public $comments;
-    public $institute;
 
     function __construct($attributes = array())
     {
@@ -25,18 +23,18 @@ class Comments extends Connect{
             $this->id = array_key_exists('id', $attributes) ? $attributes['id'] : null;
             $this->text = $attributes['text'];
             $this->time = $attributes['time'];
+            $this->post = $attributes['post'];
             $this->user = Users::select($attributes['user']);
         }
     }
     
     public function insert() {
         $connect = static::start();
-        $stm = $connect->prepare("INSERT INTO comments(text, time, user) VALUES (:text, :time, :user)");
+        $stm = $connect->prepare("INSERT INTO comments(text, time, user, post) VALUES (:text, :time, :user, :post)");
         $stm->bindValue(":text",$this->text,PDO::PARAM_STR);
         $stm->bindValue(":time",$this->time,PDO::PARAM_STR);
         $stm->bindValue(":user",$this->user->id,PDO::PARAM_INT);
-        $stm->bindValue(":file",$this->file->id,PDO::PARAM_INT);
-        $stm->bindValue(":discipline",$this->discipline->id,PDO::PARAM_INT);
+        $stm->bindValue(":post",$this->post,PDO::PARAM_INT);
         return $stm->execute();
     }
 
