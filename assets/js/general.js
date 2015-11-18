@@ -10,7 +10,12 @@ function pullDiscipline(id){
 }
 function followDiscipline(id){
     $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'followDiscipline'}, function(result) {
-        alert(result);
+        return false;
+    });
+}
+function unfollowDiscipline(id){
+    $.post('../controllers/user_has_disciplines.php',{ discipline: id, action: 'unfollowDiscipline'}, function(result) {
+        return false;
     });
 }
 $('.btn-area').click(function(){

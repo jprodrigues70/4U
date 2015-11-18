@@ -40,7 +40,7 @@
                 foreach ($disciplines as $discipline) {
                     $myDiscipline = UserHasDisciplines::exists($_SESSION['user'],$discipline->id);
                     if($myDiscipline) {
-                        $button = "<button class='btn btn-default' disabled='true'>Seguindo...</button>";
+                        $button = "<button class='btn btn-default' onclick='unfollowDiscipline(".$discipline->id.", this)'>Deixar de Seguir</button>";
                     }else{
                         $button = "<button class='btn btn-default' onclick='followDiscipline(".$discipline->id.", this)'>Seguir</button>";
                     }
