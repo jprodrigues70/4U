@@ -23,7 +23,7 @@ class UserHasDisciplines extends Connect{
         return $stm->execute();
     }
 
-    public function exists($id, $discipline) {
+    public static function exists($id, $discipline) {
         $connect = static::start();
         $stm = $connect->prepare("SELECT * FROM users_has_disciplines WHERE user = :user AND discipline = :discipline");
         $stm->bindValue(":user", $id, PDO::PARAM_INT);

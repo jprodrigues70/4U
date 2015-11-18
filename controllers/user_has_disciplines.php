@@ -7,7 +7,7 @@
         public static function followDiscipline() {
             if (isset($_SESSION['user']) && isset($_POST['discipline'])) {
                 $userHasDiscipline = new UserHasDisciplines(array("user" => $_SESSION['user'], "discipline" => $_POST['discipline']));
-                if (!$userHasDiscipline->exists()) $userHasDiscipline->insert();
+                if (!UserHasDisciplines::exists($_SESSION['user'], $_POST['discipline'])) $userHasDiscipline->insert();
             }
         }
 
