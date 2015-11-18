@@ -95,6 +95,23 @@
     &-footer {
         text-align: right;
     }
+    &-content {
+        height: 60px;
+        margin: 10px 0;
+        .file-image, .file-description {
+            float: left;
+            height: 100%;
+            overflow: hidden;
+        }
+        i {
+            font-size: 60px;
+            margin-right: 10px;
+        }
+        
+    }
+    input {
+        width: calc(100% - 50px)!important;
+    }
 }
 
 .comments-box {
@@ -102,12 +119,25 @@
     background-color: #F6F7F8;
     width: 100%;
     .comment {
+        position: relative;
         margin-bottom: 15px;
         img {
             float: left;
         }
         &:after {
             @extend %clearFix;
+        }
+        .time {
+            font-size: 11px;
+        }
+        .c-action {
+            position: absolute;
+            right: 0;
+            color: #AAA;
+            cursor: pointer;
+            &:hover {
+                color: #000;
+            }
         }
     }
     img {
@@ -123,13 +153,24 @@
         display: inline-block;
         margin-top: 5px;
         margin-bottom: 0;
+        font-size: 14px;
     }
     .do-comment {
+        form {
+            width: calc(90% - 50px);
+            display: inline-block;
+        }
         input {
-            width: calc(100% - 50px);
+            width: 100%;
             background-color: #FFF;
             border: 1px solid #ABCFCD;
             padding: 5px;
+        }
+        
+        .mini-send {
+            width: calc(10% - 6px);
+            padding: 5px;
+            height: 29px;
         }
     }
 }

@@ -8,9 +8,10 @@
             <li><a href="disciplines.php">Disciplinas</a></li>
         </ul>
         <ul class="me" id="me-menu-bt">
-            <li><?php echo $_SESSION['name']; ?><img src="../<?php echo ($_SESSION['image']) ? 'uploads/users/' . $_SESSION['image'] : 'assets/img/default.png'; ?>" alt=""></li>
+            <li><?php echo $_SESSION['name']; ?> <img src="../<?php echo (isset($_SESSION['image'])) ? 'uploads/users/' . $_SESSION['image'] : 'assets/img/default.png'; ?>" alt=""></li>
             <ul id="me-menu">
                 <a href=""><li>Perfil</li></a>
+                <a href="">Administração</a>
                 <a href="../controllers/logout.php"><li>Sair</li></a>
             </ul>
         </ul>
